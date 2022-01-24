@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	</style>
+  </head>
+  <body>
+  <h1>Server overload</h1>
+  <p>Your request has been queued. Please wait for the queue to clear.</p>
+  <p><span class="reqcount">2</span> requests left until yours is handled</p>
+  <label>Progress:
+  <progress id="progress" max="1" value="0">Progress bar</progress></label>
+  <script>
+  globalThis.resolved = 1;
+  setInterval(function() {
+	document.querySelector('.reqcount').innerHTML = Math.round(parseInt(document.querySelector('.reqcount').innerHTML) + Math.round(Math.random() * 3 + 1));
+	globalThis.resolved += 2;
+	document.getElementById('progress').setAttribute('value', globalThis.resolved / parseInt(document.querySelector('.reqcount').innerHTML));
+  }, 250);
+  </script>
+  <p>
+  <a href="alanhw6.html">SKIP THE WAIT - Purchase a plan and get high priority</a></p>

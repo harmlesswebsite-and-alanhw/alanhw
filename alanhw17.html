@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+
+	}
+	summary {
+		list-style: none;
+	}
+	.width100 {
+		width: 100%;
+		height: 100vh;
+	}
+				.fakenotlink {
+			color: inherit;
+			text-decoration: none;
+			pointer: default;
+		}
+		label {
+			padding: 2px;
+			border: 1px solid;
+		}
+		.white  {
+			color: white;
+		}
+		.allwidth {
+			width: 95%;
+		}
+		.locked {
+			background-color: #111111;
+			color: black;
+		}
+		.locked::before {
+			z-index: 999;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 
+			content: "\00a0\00a0";
+			width: 100%;
+			background-color: green;
+		}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+	  <h1>Site Unavailable</h1>
+   	<p>Please click the button below according to your choice.</p>
+	  <div id="form">
+	<p>I am <label><input type="checkbox" id="notmorone" /> not</label> <span class="white">not</span> a morone.</p>
+ <button id="nextpage">Go to next page on site</button></div>
+	  <div id="prompt">
+		  Please complete the form, then the web address to visit will show up below. Rules are simple:
+		  <ul>
+			  <li>No hecking!</li>
+			  <li>Be honest!</li>
+		  </ul>
+	  </div>
+	  <label>Web address to continue: <br /><input id="webaddr" readonly="readonly" value="Not available yet, you hecker who wants to find out this text!" class="allwidth locked" disabled="disabled" title="Locked" /></label>
+ <script>
+	 document.getElementById('nextpage').addEventListener('click', function() {
+		 document.getElementById('webaddr').classList.remove('locked');
+		 document.getElementById('webaddr').removeAttribute('disabled');
+		 document.getElementById('webaddr').title = 'Unlocked now';
+		 if (document.getElementById('notmorone').checked) {
+			 document.getElementById('webaddr').value = "https://alanhw.weeklyd3.repl.co/alanhw.html?i-am-a-morone=true";
+		 } else {
+			 document.getElementById('webaddr').value = "https://alanhw.weeklyd3.repl.co/alanhw19.html?i-am-a-morone=false";
+		 }
+		 document.getElementById('form').innerHTML = document.getElementById('notmorone').checked ? "You admitted you are a morone. We feel sorry for you. Use the link below to continue." : "Congrats, you admit that you are not a morone! We'll quiz you further.";
+		 
+		 document.getElementById('prompt').classList.add('prompt');
+		 setTimeout(function() { document.getElementById('prompt').innerHTML = ''; }, 1000);
+	 });
+ </script>
+ <style>
+	 .prompt {
+    -webkit-transition: opacitytransform 1000ms linear;
+		 -moz-transition: opacitytransform 1000ms linear;
+    transition: opacitytransform 1000ms linear;
+}
+	 @keyframes opacitytransform {
+		 0% {
+			 opacity: 1;
+		 }
+		 100% {
+	 		opacity: 0;
+		 }
+	 }
+ </style>

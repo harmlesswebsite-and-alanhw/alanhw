@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+  <p>Here's the news feed. <a href="alanhw9.html">BORED? Move on!</a></p>
+  <!--
+Here's the PHP code used to generate this news feed:
+
+<?php 
+$newsfeed = array(
+    array(
+        "title" => "Event tomorrow",
+        "body" => "Tomorrow I will eat poop and discuss why eating feces is important.",
+        "author" => "Your techer",
+        "time" => "1 hour ago"
+        ),
+        array("title" => "Reeeeeeeeeeeeee: Poop vs Pee",
+        "body" => "Why are there so many Res? REEEEEEEEEEEEEEEEEEEE!!!",
+        "author" => "tennis4balloon@gmail.com",
+        "time" => "Yesterday"
+        ),
+    array(
+        "title" => "Re: Re: Re: Poop vs Pee",
+        "body" => "Poop is a lot yummier. Pee is just yellow water.",
+        "author" => "Anonymous",
+        "time" => "Yesterday",
+        ),
+    array(
+        "title" => "Re: Re: Poop vs Pee",
+        "body" => "I like yellow boba tea.",
+        "author" => "73.15.89.237",
+        "time" => "The day before yesterday"
+        ),
+    array("title" => "Re: Poop vs Pee",
+    "body" => "Pee helps me stay hydrated.",
+    "author" => "38.142.24.194",
+    "time" => "The day before yesterday"
+    ),
+    array(
+        "title" => "Poop vs Pee",
+        "body" => "Which is better? Poop or Pee? Please reply!",
+        "author" => "timothywei.spam@gmail.com",
+        "time" => "About a week ago"
+        ),
+        array(
+            "title" => "Stop it",
+            "body" => "Seriously, stop it",
+            "author" => "tennis4balloon@gmail.com",
+            "time"=> "About a week ago"
+            ),
+        array(
+            "title" => "Happy old year",
+            "body" => "IT IS STILL 2022!?",
+            "author" => "Anonymous",
+            "time"=> "About a week ago"
+            ),
+            
+array("title" =>
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut magna mauris, lobortis non turpis vitae, efficitur pellentesque lectus. Aenean tempor lacinia sapien sit amet scelerisque. Fusce vestibulum. ",
+                        "body" => "Just like that!",
+            "author" => "73.15.89.237",
+            "time" => "About a week ago"),
+            array(
+            "title" => "Re: Re: Re: Re: Re: Re: Re: Re: Re: Re: Re: Your assignment",
+            "body" => "Just use placeholder text",
+            "author" => "73.15.89.237",
+            "time" => "About a week ago"
+            ),
+            array(
+            "title" => "Re: Re: Re: Re: Re: Re: Re: Re: Re: Re: Re: Your assignment",
+            "body" => "Just use placeholder text",
+            "author" => "73.15.89.237",
+            "time" => "About a week ago"
+            ),
+            array(
+            "title" => " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat, sem quis aliquam congue, tellus tellus condimentum nisi, non facilisis magna magna id elit. Phasellus in augue a nibh volutpat pulvinar. Nulla nec porttitor sem. Aliquam convallis, ipsum quis consequat maximus, massa quam aliquet sem, eu vulputate augue nulla quis urna. Proin commodo, orci a aliquam finibus, elit justo sollicitudin neque, ac fermentum felis est id nibh. Phasellus at enim arcu. Suspendisse blandit, nibh condimentum sodales ultrices, ligula elit tincidunt lorem, et iaculis purus odio sed urna. Morbi egestas mollis nisl, et viverra ipsum lobortis ac. ",
+            "body" => " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat, sem quis aliquam congue, tellus tellus condimentum nisi, non facilisis magna magna id elit. Phasellus in augue a nibh volutpat pulvinar. Nulla nec porttitor sem. Aliquam convallis, ipsum quis consequat maximus, massa quam aliquet sem, eu vulputate augue nulla quis urna. Proin commodo, orci a aliquam finibus, elit justo sollicitudin neque, ac fermentum felis est id nibh. Phasellus at enim arcu. Suspendisse blandit, nibh condimentum sodales ultrices, ligula elit tincidunt lorem, et iaculis purus odio sed urna. Morbi egestas mollis nisl, et viverra ipsum lobortis ac.\n\nEtiam sollicitudin mauris ligula, sed condimentum enim porttitor vitae. Nullam bibendum ligula accumsan, auctor tortor nec, lobortis lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum porttitor, dui id semper mattis, est justo mollis mauris, nec semper nibh ex in lectus. Donec id ex leo. Pellentesque tincidunt malesuada fringilla. Morbi maximus ac sapien et aliquet. Nunc eget tincidunt nibh, a ultricies nisi. Sed id consequat massa, sit amet bibendum elit. Nulla vulputate et metus quis facilisis. Nullam suscipit ante non ipsum congue tristique. Duis ac scelerisque lacus, non varius elit. Sed gravida blandit luctus. In a elit sit amet nulla malesuada viverra nec at nibh. \n\n Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam et nulla at tellus tempor consequat. Sed euismod venenatis gravida. Maecenas porta porta ante sit amet iaculis. Nam eu odio congue, gravida elit eget, vulputate lacus. Nullam nec nunc ut neque tempor commodo sed sit amet arcu. Nulla facilisi. ",
+            "author" => "No One",
+            "time" => "About a week ago"
+            ),
+            array(
+            "title" => "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "body" => "Very long.",
+            "author" => "73.15.89.237",
+            "time" => "About a week ago"
+            ),
+            array(
+            "title" => "Re: Re: Re: Re: Re: Re: Re: Re: Re: Your assignment",
+            "body" => "How long can the subject be?",
+            "author" => "73.15.89.237",
+            "time" => "About a week ago"
+            ),
+                                                     array(
+            "title" => "Re: Re: Re: Re: Re: Re: Re: Re: Your assignment",
+            "body" => "You're the 'faliure' who \"does not 'plagrize'.\" It's failure not faliure and plagiarize not plagrize ya BIG NUB",
+            "author" => "Bald Nerd",
+            "time" => "About a week ago"
+            ),
+                                                     array(
+            "title" => "Re: Re: Re: Re: Re: Re: Re: Your assignment",
+            "body" => "I also think that it is Illuminati, but I didn't plagrize. I
+            m not a faliure you BIG NUB",
+            "author" => "Anonymous",
+            "time" => "About a week ago"
+            ),
+                                          array(
+            "title" => "Re: Re: Re: Re: Re: Re: Your assignment",
+            "body" => "ILLUMINATI",
+            "author" => "timothywei.spam@gmail.com",
+            "time" => "About a week ago"
+            ),
+                              array(
+            "title" => "Re: Re: Re: Re: Re: Your assignment",
+            "body" => "What's the answer?",
+            "author" => "Bald Nerd",
+            "time" => "About a week ago"
+            ),
+                              array(
+            "title" => "Re: Re: Re: Re: Your assignment",
+            "body" => "REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+            "author" => "timothywei.spam@gmail.com",
+            "time" => "About a week ago"
+            ),
+                                array(
+            "title" => "Re: Re: Re: Your assignment",
+            "body" => "No you didn't",
+            "author" => "Anonymous",
+            "time" => "About a week ago"
+            ),
+                    array(
+            "title" => "Re: Re: Your assignment",
+            "body" => "I taught this in class. Were you paying attention?",
+            "author" => "Bald Nerd",
+            "time" => "About a week ago"
+            ),
+                    array(
+            "title" => "Re: Your assignment",
+            "body" => "Too hard",
+            "author" => "Anonymous",
+            "time" => "About a week ago"
+            ),
+            array(
+                "title" => "Your assignment",
+                "body" => "I'll let you pass if you answer a simple riddle:\nWhat is the sum of the integrals of the integers from 1 to 100?",
+                "author" => "Bald Nerd",
+                "time" => "More than a week ago"
+                ),
+                
+                array(
+            "title" => "Happy old year",
+            "body" => "It's 2022. I'll check in a week to see if it is a new year.",
+            "author" => "Anonymous",
+            "time" => "About two weeks ago"
+            )
+    );
+    foreach ($newsfeed as $item) {
+        ?><div class="newsfeeditem">
+            <h2>
+                <?php echo htmlspecialchars($item['title']); ?>
+            </h2>
+            <div class="newsfeedcontents">
+                <?php echo htmlspecialchars($item['body']); ?>
+            </div>
+            <div class="newsfeed-owner">
+                By <?php echo htmlspecialchars($item['author']); ?></div>
+                <div class="newsfeed-date">
+                <?php echo htmlspecialchars($item['time']); ?>
+            </div>
+        </div> <?php
+    } ?>
+-->
+<h1>Your News</h1>
+  <div class="newsfeeditem">
+            <h2>
+                Event tomorrow            </h2>
+            <div class="newsfeedcontents">
+                Tomorrow I will eat poop and discuss why eating feces is important.            </div>
+            <div class="newsfeed-owner">
+                By Your techer</div>
+                <div class="newsfeed-date">
+                1 hour ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Reeeeeeeeeeeeee: Poop vs Pee            </h2>
+            <div class="newsfeedcontents">
+                Why are there so many Res? REEEEEEEEEEEEEEEEEEEE!!!            </div>
+            <div class="newsfeed-owner">
+                By tennis4balloon@gmail.com</div>
+                <div class="newsfeed-date">
+                Yesterday            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Poop vs Pee            </h2>
+            <div class="newsfeedcontents">
+                Poop is a lot yummier. Pee is just yellow water.            </div>
+            <div class="newsfeed-owner">
+                By Anonymous</div>
+                <div class="newsfeed-date">
+                Yesterday            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Poop vs Pee            </h2>
+            <div class="newsfeedcontents">
+                I like yellow boba tea.            </div>
+            <div class="newsfeed-owner">
+                By 73.15.89.237</div>
+                <div class="newsfeed-date">
+                The day before yesterday            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Poop vs Pee            </h2>
+            <div class="newsfeedcontents">
+                Pee helps me stay hydrated.            </div>
+            <div class="newsfeed-owner">
+                By 38.142.24.194</div>
+                <div class="newsfeed-date">
+                The day before yesterday            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Poop vs Pee            </h2>
+            <div class="newsfeedcontents">
+                Which is better? Poop or Pee? Please reply!            </div>
+            <div class="newsfeed-owner">
+                By timothywei.spam@gmail.com</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Stop it            </h2>
+            <div class="newsfeedcontents">
+                Seriously, stop it            </div>
+            <div class="newsfeed-owner">
+                By tennis4balloon@gmail.com</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Happy old year            </h2>
+            <div class="newsfeedcontents">
+                IT IS STILL 2022!?            </div>
+            <div class="newsfeed-owner">
+                By Anonymous</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut magna mauris, lobortis non turpis vitae, efficitur pellentesque lectus. Aenean tempor lacinia sapien sit amet scelerisque. Fusce vestibulum.             </h2>
+            <div class="newsfeedcontents">
+                Just like that!            </div>
+            <div class="newsfeed-owner">
+                By 73.15.89.237</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Re: Re: Re: Re: Re: Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                Just use placeholder text            </div>
+            <div class="newsfeed-owner">
+                By 73.15.89.237</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Re: Re: Re: Re: Re: Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                Just use placeholder text            </div>
+            <div class="newsfeed-owner">
+                By 73.15.89.237</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat, sem quis aliquam congue, tellus tellus condimentum nisi, non facilisis magna magna id elit. Phasellus in augue a nibh volutpat pulvinar. Nulla nec porttitor sem. Aliquam convallis, ipsum quis consequat maximus, massa quam aliquet sem, eu vulputate augue nulla quis urna. Proin commodo, orci a aliquam finibus, elit justo sollicitudin neque, ac fermentum felis est id nibh. Phasellus at enim arcu. Suspendisse blandit, nibh condimentum sodales ultrices, ligula elit tincidunt lorem, et iaculis purus odio sed urna. Morbi egestas mollis nisl, et viverra ipsum lobortis ac.             </h2>
+            <div class="newsfeedcontents">
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat, sem quis aliquam congue, tellus tellus condimentum nisi, non facilisis magna magna id elit. Phasellus in augue a nibh volutpat pulvinar. Nulla nec porttitor sem. Aliquam convallis, ipsum quis consequat maximus, massa quam aliquet sem, eu vulputate augue nulla quis urna. Proin commodo, orci a aliquam finibus, elit justo sollicitudin neque, ac fermentum felis est id nibh. Phasellus at enim arcu. Suspendisse blandit, nibh condimentum sodales ultrices, ligula elit tincidunt lorem, et iaculis purus odio sed urna. Morbi egestas mollis nisl, et viverra ipsum lobortis ac.
+
+Etiam sollicitudin mauris ligula, sed condimentum enim porttitor vitae. Nullam bibendum ligula accumsan, auctor tortor nec, lobortis lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum porttitor, dui id semper mattis, est justo mollis mauris, nec semper nibh ex in lectus. Donec id ex leo. Pellentesque tincidunt malesuada fringilla. Morbi maximus ac sapien et aliquet. Nunc eget tincidunt nibh, a ultricies nisi. Sed id consequat massa, sit amet bibendum elit. Nulla vulputate et metus quis facilisis. Nullam suscipit ante non ipsum congue tristique. Duis ac scelerisque lacus, non varius elit. Sed gravida blandit luctus. In a elit sit amet nulla malesuada viverra nec at nibh. 
+
+ Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam et nulla at tellus tempor consequat. Sed euismod venenatis gravida. Maecenas porta porta ante sit amet iaculis. Nam eu odio congue, gravida elit eget, vulputate lacus. Nullam nec nunc ut neque tempor commodo sed sit amet arcu. Nulla facilisi.             </div>
+            <div class="newsfeed-owner">
+                By No One</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA            </h2>
+            <div class="newsfeedcontents">
+                Very long.            </div>
+            <div class="newsfeed-owner">
+                By 73.15.89.237</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Re: Re: Re: Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                How long can the subject be?            </div>
+            <div class="newsfeed-owner">
+                By 73.15.89.237</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Re: Re: Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                You're the 'faliure' who &quot;does not 'plagrize'.&quot; It's failure not faliure and plagiarize not plagrize ya BIG NUB            </div>
+            <div class="newsfeed-owner">
+                By Bald Nerd</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Re: Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                I also think that it is Illuminati, but I didn't plagrize. I
+            m not a faliure you BIG NUB            </div>
+            <div class="newsfeed-owner">
+                By Anonymous</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                ILLUMINATI            </div>
+            <div class="newsfeed-owner">
+                By timothywei.spam@gmail.com</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                What's the answer?            </div>
+            <div class="newsfeed-owner">
+                By Bald Nerd</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE            </div>
+            <div class="newsfeed-owner">
+                By timothywei.spam@gmail.com</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                No you didn't            </div>
+            <div class="newsfeed-owner">
+                By Anonymous</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                I taught this in class. Were you paying attention?            </div>
+            <div class="newsfeed-owner">
+                By Bald Nerd</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Re: Your assignment            </h2>
+            <div class="newsfeedcontents">
+                Too hard            </div>
+            <div class="newsfeed-owner">
+                By Anonymous</div>
+                <div class="newsfeed-date">
+                About a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Your assignment            </h2>
+            <div class="newsfeedcontents">
+                I'll let you pass if you answer a simple riddle:
+What is the sum of the integrals of the integers from 1 to 100?            </div>
+            <div class="newsfeed-owner">
+                By Bald Nerd</div>
+                <div class="newsfeed-date">
+                More than a week ago            </div>
+        </div> <div class="newsfeeditem">
+            <h2>
+                Happy old year            </h2>
+            <div class="newsfeedcontents">
+                It's 2022. I'll check in a week to see if it is a new year.            </div>
+            <div class="newsfeed-owner">
+                By Anonymous</div>
+                <div class="newsfeed-date">
+                About two weeks ago            </div>
+        </div>          About two weeks ago            </div>
+        </div> 

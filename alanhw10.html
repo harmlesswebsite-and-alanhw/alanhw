@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	summary {
+		list-style: none;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+  <h1>What did you expect?</h1>
+  <p>Please rate our page.</p>
+  <details>
+  <summary>&raquo; Bad</summary>
+  </details>
+  <details>
+  <summary>&raquo; Medium</summary>
+  </details>
+  <details>
+  <summary>&raquo; Good</summary>
+  </details>
+  <p id="votesubmit">Please vote!</p>
+  <script>
+  document.querySelectorAll('summary').forEach(function(v) {
+	v.addEventListener('click', function() {
+		document.getElementById('votesubmit').innerHTML = "Please wait, submitting your vote. <img src=\"loadinganimation.gif\" alt=\"loading...\" /> (<a href=\"alanhw11.html\">Skip and cancel vote</a>)";
+	});
+  });
+  </script>
