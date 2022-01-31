@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+
+	}
+	summary {
+		list-style: none;
+	}
+	.width100 {
+		width: 100%;
+		height: 100vh;
+	}
+				.fakenotlink {
+			color: inherit;
+			text-decoration: none;
+			pointer: default;
+		}
+		label {
+			padding: 2px;
+			border: 1px solid;
+		}
+		.white  {
+			color: white;
+		}
+		.allwidth {
+			width: 95%;
+		}
+		.locked {
+			background-color: #111111;
+			color: black;
+		}
+		.locked::before {
+			z-index: 999;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 
+			content: "\00a0\00a0";
+			width: 100%;
+			background-color: green;
+		}
+		.farapart {
+			list-style: none;
+		}
+		.farapart > li {
+			margin-top: 1500px;
+		}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+	  <h1>Bad Latin Quiz</h1>
+   <span id="word">
+	   not started
+   </span>
+   <span id="means">means
+	  <form action="javascript:;"><label>this word: <input type="text" id="translation" disabled="disabled" /></label></form></span>
+   <p><span id="wrong">0</span> wrong, <span id="right">0</span> right</p>
+	  <p id="score">After you complete the test, your score will be shown here.</p>
+   <p>STATUS: <span id="status">loading words</span>... <noscript>FAILED: No JavaScript!</noscript><span id="otherstatus"></span></p>
+   <script>
+	   document.getElementById('means').style.display = 'none';
+	function reqListener () {
+		globalThis.words = JSON.parse(this.responseText);
+		document.getElementById('otherstatus').innerHTML = 'Done';
+		startTest();
+	}
+	   globalThis.indexesBefore = [];
+	   function calculateScores() {
+		   document.getElementById('status').textContent = 'Finished.';
+		   document.getElementById('otherstatus').textContent = "Scores are above."
+		   document.getElementById('word').innerHTML = '';
+		   document.getElementById('means').innerHTML = '';
+		   document.getElementById('score').innerHTML = "Score: " + (100 * parseInt(document.getElementById('right').innerHTML) / (parseInt(document.getElementById('right').innerHTML) + parseInt(document.getElementById('wrong').innerHTML))) + " percent. Words:";
+		   var table = document.createElement('table');
+		   var tr = document.createElement('tr');
+		   tr.innerHTML = '<th>Word</th><th>Meaning</th>';
+		   table.appendChild(tr);
+		   words.forEach(function(v) {
+			   var tr = document.createElement('tr');
+			   var word = document.createElement('td');
+			   word.innerHTML = v['word'];
+			   tr.appendChild(word);
+			   var meaning = document.createElement('td');
+			   if (Array.isArray(v['meaning'])) meaning.innerHTML = v['meaning'].join(", ");
+			   else meaning.innerHTML = v['meaning'];
+			   tr.appendChild(meaning);
+			   table.appendChild(tr);
+		   });
+		   document.getElementById('score').appendChild(table);
+	   }
+	   function test() {
+		   if (globalThis.indexesBefore.length === words.length) {
+			   calculateScores();
+			   return;
+		   }
+		   document.getElementById('otherstatus').innerHTML = "Question " + (indexesBefore.length + 1) + " of " + words.length;
+		   globalThis.index = getRandomInt(0, words.length - 1);
+		   while (indexesBefore.includes(globalThis.index)) {
+			   globalThis.index = getRandomInt(0, words.length - 1);
+		   }
+		   document.getElementById('word').textContent = words[index]['word'];
+		   globalThis.meaning = words[index]['meaning'];
+		   globalThis.indexesBefore.push(index);
+		   document.querySelector('form').onsubmit = function() {
+			   if (Array.isArray(meaning)) {
+				   if (meaning.includes(document.querySelector('input[type="text"]').value)) {
+					   document.getElementById('right').innerHTML = parseInt(document.getElementById('right').innerHTML) + 1;
+				   } else {
+					   document.getElementById('wrong').innerHTML = parseInt(document.getElementById('wrong').innerHTML) + 1;
+				   }
+			   } else {
+			   if (meaning === document.querySelector('input[type="text"]').value) {
+					   document.getElementById('right').innerHTML = parseInt(document.getElementById('right').innerHTML) + 1;
+				   } else {
+					   document.getElementById('wrong').innerHTML = parseInt(document.getElementById('wrong').innerHTML) + 1;
+				   } 
+			   }
+			   document.getElementById('translation').value = '';
+			   test();
+		   };
+	   }
+	   function startTest() {
+		   let startButton = document.createElement('button');
+		   startButton.innerHTML = "Click to start test";
+		   startButton.addEventListener('click', function() {
+			   document.getElementById('means').style.display = 'inline';
+			   document.getElementById('translation').removeAttribute('disabled');
+			   test();
+			document.getElementById('status').innerHTML = "Testing"
+			   this.remove();
+		   });
+		   document.getElementById('word').appendChild(startButton);
+			document.getElementById('status').innerHTML = "Waiting for confirmation";
+		   document.getElementById('otherstatus').innerHTML = 'Please click the "start test" button.';
+	   }
+	document.getElementById('otherstatus').innerHTML = 'Please wait...';
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", reqListener);
+	oReq.open("GET", "latinwords.json");
+	oReq.send();
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+   </script>

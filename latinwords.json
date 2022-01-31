@@ -1,0 +1,58 @@
+[
+	{
+		"word": "coquus",
+		"meaning": "cook"
+	},
+	{
+		"word": "panis",
+		"meaning": "bread"
+	},
+	{
+		"word": "canis",
+		"meaning": "dog"
+	},
+	{
+		"word": "leo",
+		"meaning": ["Leo", "lion"]
+	},
+	{
+		"word": "via",
+		"meaning": ["street", "road"]
+	},
+	{
+		"word": "triclinio",
+		"meaning": ["dining room", "triclinium"]
+	},
+	{
+		"word": "atrium",
+		"meaning": "atrium"
+	},
+	{
+		"word": "horto",
+		"meaning": "garden"
+	},
+	{
+		"word": "iratus",
+		"meaning": ["irate", "angry"]
+	},
+	{
+		"word": "laetus",
+		"meaning": "happy"
+	},
+	{
+		"word": "non",
+		"meaning": "not"
+	},
+	{
+		"word": "est",
+		"meaning": "is"
+	},
+	{
+		"word": "erat",
+		"meaning": "was"
+	},
+	{
+		"word": "nos",
+		"meaning": "we"
+	}
+]

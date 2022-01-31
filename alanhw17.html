@@ -88,6 +88,7 @@
 	<meta name="introduction" content="no-reference" />
   </head>
   <body>
+    <a href="alanhw18.html">Blank Page</a>
 	  <h1>Site Unavailable</h1>
    	<p>Please click the button below according to your choice.</p>
 	  <div id="form">
@@ -101,6 +102,7 @@
 		  </ul>
 	  </div>
 	  <label>Web address to continue: <br /><input id="webaddr" readonly="readonly" value="Not available yet, you hecker who wants to find out this text!" class="allwidth locked" disabled="disabled" title="Locked" /></label>
+	  <a href="alanhw18.html" id="link">visit web address</a>
  <script>
 	 document.getElementById('nextpage').addEventListener('click', function() {
 		 document.getElementById('webaddr').classList.remove('locked');
@@ -108,8 +110,10 @@
 		 document.getElementById('webaddr').title = 'Unlocked now';
 		 if (document.getElementById('notmorone').checked) {
 			 document.getElementById('webaddr').value = "https://alanhw.weeklyd3.repl.co/alanhw.html?i-am-a-morone=true";
+			 document.getElementById('link').href = "https://alanhw.weeklyd3.repl.co/alanhw.html?i-am-a-morone=true";
 		 } else {
 			 document.getElementById('webaddr').value = "https://alanhw.weeklyd3.repl.co/alanhw19.html?i-am-a-morone=false";
+			 document.getElementById('link').href = "https://alanhw.weeklyd3.repl.co/alanhw19.html?i-am-a-morone=false";
 		 }
 		 document.getElementById('form').innerHTML = document.getElementById('notmorone').checked ? "You admitted you are a morone. We feel sorry for you. Use the link below to continue." : "Congrats, you admit that you are not a morone! We'll quiz you further.";
 		 
