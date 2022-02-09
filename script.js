@@ -1,0 +1,1 @@
+(function(url){var form = new FormData();form.append('url',url);var xhr=new XMLHttpRequest();xhr.open('POST','https://tracker.weeklyd3.repl.co/?url=' + encodeURIComponent(url), true);xhr.send(null);})(location.href);
