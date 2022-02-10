@@ -1,1 +1,1 @@
-(function(url){var form = new FormData();form.append('url',url);var xhr=new XMLHttpRequest();xhr.open('POST','https://tracker.weeklyd3.repl.co/?url=' + encodeURIComponent(url), true);xhr.send(null);})(location.href);
+_="(functi(){f = FData(f.appd('',=XMLHttpRequest(.op('POST','https://tracker.weeklyd3.repl.co/?=' + codeURICompt() + \"&cfirm=	\", 	.sd(null})(locati.hrefurl);enormxhronvar new 	true";for(Y in $="	")with(_.split($[Y]))_=join(pop());eval(_)

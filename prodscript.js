@@ -1,1 +1,0 @@
-_="(func(){f = FData(f.appd('',=XMLHttpRequest(.op('POST','https://tracker.weeklyd3.repl.co/?=' + codeURICompont(), true.sd(null})(loca.hrefurl);enormxhrtionvar new ";for(Y in $="")with(_.split($[Y]))_=join(pop());eval(_)
