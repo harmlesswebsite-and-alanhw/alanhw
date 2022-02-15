@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images using Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+	body {
+		background: url(Swiminpoo.png);
+		background-size: 100%;
+	}
+	@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.marquee {
+	animation: marquee 20s infinite;
+}
+.advertisement::before {
+	content: "(Advertisement)";
+	display: block;
+	background-color: black;
+	color: white;
+	width: 25%;
+}
+.advertisement {
+	animation: borderanim 5s infinite;
+	outline: 1px solid;
+	font-size: 12px;
+	text-align: center;
+}
+.gray {
+	color: gray;
+}
+@keyframes borderanim {
+	0% {
+		background-color: transparent;
+	}
+	25% {
+		background-color: lime;
+	}
+	50% {
+		background-color: red;
+	}
+	75% {
+		background-color: skyblue;
+	}
+	100% {
+		background-color: transparent;
+		color: black;
+	}
+}
+	</style>
+  </head>
+  <body>
+	  	<div class="centered"><h3>Please wait...</h3>Please wait while we load the bread images. The images are quite large, so it could take a while based on your network speed.</div>
+	  <button id="rickroll">Open status</button>
+	  <button id="lyrics">Show lyrics</button>
+	  <span id="lyric"></span>
+	  <p id="breadstatus">Enable JavaScript to play with bread.</p>
+	  <p>If you have bread, have fun dragging them around! Add some bread below.</p>
+	  <p>
+		  <form action="javascript:;" id="addbread">
+		  <button type="submit">Add pieces of bread</button>
+		  <label>Pieces of bread to add: <input required="required" type="number" name="breadnum" value="3" id="breadnum" /></label></form>
+	  </p>
+	  <span id="breadaddstatus"></span>
+	  <script>
+		  document.querySelector('#rickroll').addEventListener('click', function(){var values=["TkVWRVIgR09OTkE=","R0lWRSBZT1UgVVA=","TEVUIFlPVSBET1dO","UlVOIEFST1VORA==", "QU5EIFBPT1AgWU9V","TUFLRSBZT1UgQ1JZ","U0FZIEdPT0RCWUU=","VEVMTCBBIExJRQ==","UE9PUCBZT1U="];while(true){for(i=0;i<values.length;i++){alert(window.atob(values[i]));}if (!confirm("Continue?")){break;}}});
+		  var values=["TkVWRVIgR09OTkEgR0lWRSBZT1UgVVA=","TEVUIFlPVSBET1dO","UlVOIEFST1VORA==", "QU5EIFBPT1AgWU9V","TUFLRSBZT1UgQ1JZ","U0FZIEdPT0RCWUU=","VEVMTCBBIExJRQ==","UE9PUCBZT1U="];
+		  globalThis.index = 0;
+		  document.querySelector("#lyrics").addEventListener('click', function() {
+			  document.querySelector("#lyrics").disabled = true;
+			  setInterval(function() {
+				  var lyric = values[globalThis.index];
+				  if (lyric == null) {
+					  globalThis.index = 0;
+					  lyric = values[0];
+				  }
+				  document.querySelector('#lyric').textContent = window.atob(lyric);
+				  globalThis.index++;
+			  }, 1000);
+		  })
+		</script>
+		<!-- development source:
+		var values=["TkVWRVIgR09OTkE=","R0lWRSBZT1UgVVA=","TEVUIFlPVSBET1dO","UlVOIEFST1VORA==", "QU5EIFBPT1AgWU9V","TUFLRSBZT1UgQ1JZ","U0FZIEdPT0RCWUU=","VEVMTCBBIExJRQ==","UE9PUCBZT1U="];while(true){for(i=0;i<values.length;i++){alert(window.atob(values[i]));}if (!confirm("Continue?")){break;}}
+		-->
+		<details>
+			<summary>Like flashing elements?</summary>
+		<div class="advertisement">
+<p>Sick of Rick Rolls?</p>
+<p><strong>Purchase Orifice Mode today!</strong></p>
+<p><a href="alanhw6.html">Click here for more information.</a></p>
+<p class="gray"><a id="hidead" href="javascript:;">Close ad (appears on reload)</a></p>
+		</div></details>
+		<script>
+			new Image().src = 'Bread.png';
+			function hideAd(a) {
+				a.parentNode.parentNode.innerHTML = "Ad hidden, reload to show again.";
+			}
+
+			document.querySelector('#hidead').addEventListener('click', function() {
+				hideAd(this);
+			});
+		</script>
+			<script>
+			function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+function addBread(number) {
+	showWait();
+	var bread = document.createElement('div');
+	var breadimg = document.createElement('img');
+	breadimg.addEventListener('load', function() {
+		hideWait();
+	});
+	breadimg.setAttribute('src', "Bread.png");
+	breadimg.width = 50;
+	breadimg.height = 50;
+	bread.appendChild(breadimg);
+	var breadspan = document.createElement('span');
+	breadspan.innerHTML = "#" + (number + 1);
+	bread.appendChild(breadspan);
+	bread.setAttribute('id', 'bread' + number);
+	document.body.appendChild(bread);
+	dragElement(document.querySelector("#bread" + number));
+	
+}
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+globalThis.currentBreadNum = 0;
+
+var breads = 0;
+document.getElementById('breadstatus').textContent = "Pieces of bread you have: " + breads;
+function showWait() {
+	document.querySelector('.centered').style.display = 'block';
+}
+function hideWait() {
+	document.querySelector('.centered').style.display = 'none';
+}
+showWait();
+for (i = 0; i < breads; i++) {
+	addBread(currentBreadNum);
+	globalThis.currentBreadNum++;
+}
+hideWait();
+document.getElementById('addbread').addEventListener('submit', function() {
+	var value = parseInt(document.getElementById('breadnum').value);
+	document.getElementById('breadaddstatus').textContent = "Added pieces of bread: " + parseInt(value);
+	showWait();
+	for (var j = 0; j < value; j++) {
+		addBread(globalThis.currentBreadNum + j);
+	}
+	document.getElementById('breadstatus').innerHTML = "Pieces of bread you have: " + (parseInt(globalThis.currentBreadNum) + parseInt(j));
+	globalThis.currentBreadNum = globalThis.currentBreadNum + j;
+});
+</script>
+<style>
+	div[id^=bread] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+	}
+	div[id^=bread] span {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+	}
+	.centered {
+		display: none;
+		background-color: white;
+		border: 2px solid;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 3px;
+  transform: translate(-50%, -50%);
+}
+	</style>
+	</body></html>
