@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images using Paint" />
+	<script src="script.js"></script>
+    <title>Site Search</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+	  <div style="word-break: break-all;font-size:20px;width:90vw;font-family:monospace;border:1px solid;padding:7px;background-color: white;" onclick="document.getElementById('search').focus();">
+		  <input type="text" oninput="if(this.value.length === 0)this.size = 1;else this.size=this.value.length;" style="margin: 0;-moz-appearance: none;-webkit-appearance: none; appearance: none; padding: 0;font-family:monospace;border: none;outline:none;background-color:transparent;appearence: none;font-size:20px;" id="search" size="1" /><span id="ghosted" style="color: gray;">Type here to start searching</span>
+	  </div>
+	  <span id="goto"></span></div>
+	<span style="display:none;" id="directions"><span id="matchcount"></span> result(s) found. Click a link above to visit that search result page.</span><span id="noresults">No results match your search.</span>
+   <script>
+	   var links = {
+		   "schoology.html" : "Schoology clone. Enjoy! It took pretty long to make, and you won't be pranked.",
+		   "index.html" : "Morone Yellow Light 3",
+		   "alanhw.html": "Intro page",
+		   "alanhw2.html": "Fake error screen",
+		   "alanhw3.html": "Eat up error?",
+		   "alanhw4.html": "Loading animation",
+		   "alanhw5.html": "Server overload",
+		   "alanhw6.html" : "Intro to plans",
+		   "alanhw7.html" : "RICK ROLLED!!!",
+		   "alanhw8.html" : "View your news feed",
+		   "alanhw9.html" : "<Error while loading page description>",
+	   "alanhw10.html" : "Rate our site",
+		   "alanhw11.html":"How to upload photoshopped images",
+		   "alanhw12.html" : "You got past that!",
+		   "alanhw13.html" : "Triskaidekaphobia",
+		   "alanhw14.html" : "<Error while loading page description>",
+		   "alanhw15.html" : "Math puzzle",
+		   "alanhw16.html" : "<Error while loading page description>",
+		   "alanhw17.html" : "Morone quiz initialization",
+		   "alanhw18.html" : "Blank page",
+		   "alanhw19.html" : "Morone quiz honesty check",
+		   "alanhw19/index.html" : "Morone quiz browser check",
+		   "alanhw19/quiz.html": "Morone quiz question",
+		   "alanhw20.html" : "Latin quiz (really hard)",
+		   "alanhw21.html" : "How to make poop cuisine",
+	   "alanhw22.html" : "How to make mac-and-cheese",
+		   "blahblah.html" : "Heck droology",
+		   "bread.html" : "Play with bread",
+		   "morerickrolling.html": "NEVER GONNA GIVE YOU UP, LET YOU DOWN, RUN AROUND, AND POOP YOU.",
+		   "orifice_hour.html" : "Orifice hours",
+		   "Pro.html" : "Pro members: Access your bonus features here!",
+		   "storymodebegin.html" : "Start Story Mode, another service of ALANHW",
+		   "storymode2.html" : "Starting off",
+		   "storymode3.html" : "The feeway",
+		   "storymode4.html" : "Exiting the feeway",
+		   "storymode103.html" : "Unexplored land",
+		   "storymodedie.html" : "Go here for an additional life.",
+	   "about.html" : "About us"
+	   };
+	   document.querySelector('input').addEventListener('input', function() {
+		   document.getElementById('noresults').style.display = 'none';
+		   document.getElementById('directions').style.display = 'none';
+		   matchCount = 0;
+		   document.getElementById('goto').innerHTML = '';
+		   const value = document.querySelector('input').value;
+		   var ghosted = false;
+		   var justGhosted = false;
+		   document.getElementById('ghosted').innerHTML = '';
+		   for (const [key, item] of Object.entries(links)) {
+		if (item.toLowerCase().startsWith(value.toLowerCase())) {
+		if (!ghosted){document.getElementById('ghosted').textContent = item.substr(value.length);	ghosted = true;justGhosted = true;}}
+		if (item.toLowerCase().includes(value.toLowerCase()))	 {
+			var list = document.createElement('a');
+			if (justGhosted) {
+				list.style.fontWeight = 700;
+			}
+			list.href = key;
+			list.textContent = item;
+			var listitem = document.createElement('div');
+			listitem.appendChild(list);
+			document.getElementById('goto').appendChild(listitem);
+			matchCount++;
+		}
+			   justGhosted = false;
+}
+		   document.getElementById('matchcount').textContent = matchCount;
+		   if (matchCount === 0) {
+			   document.getElementById('noresults').style.display = 'block';
+		   } else {
+			   document.getElementById('directions').style.display = 'block';
+		   }
+	   });
+   </script>

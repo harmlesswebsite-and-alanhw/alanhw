@@ -74,7 +74,6 @@
 	</style>
   </head>
   <body>
-	  	<div class="centered"><h3>Please wait...</h3>Please wait while we load the bread images. The images are quite large, so it could take a while based on your network speed.</div>
 	  <button id="rickroll">Open status</button>
 	  <button id="lyrics">Show lyrics</button>
 	  <span id="lyric"></span>
@@ -194,12 +193,7 @@ globalThis.currentBreadNum = 0;
 
 var breads = 0;
 document.getElementById('breadstatus').textContent = "Pieces of bread you have: " + breads;
-function showWait() {
-	document.querySelector('.centered').style.display = 'block';
-}
-function hideWait() {
-	document.querySelector('.centered').style.display = 'none';
-}
+function showWait(){}function hideWait(){}
 showWait();
 for (i = 0; i < breads; i++) {
 	addBread(currentBreadNum);

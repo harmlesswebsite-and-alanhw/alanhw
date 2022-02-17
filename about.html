@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="script.js"></script>
     <title>Photoshopped Images</title>
 	<style>
 	img {
@@ -45,17 +46,55 @@
 	}
 	.newsfeeditem h2 {
 		overflow-wrap: break-word;
+
 	}
+	summary {
+		list-style: none;
+	}
+	.width100 {
+		width: 100%;
+		height: 100vh;
+	}
+				.fakenotlink {
+			color: inherit;
+			text-decoration: none;
+			pointer: default;
+		}
+		label {
+			padding: 2px;
+			border: 1px solid;
+		}
+		.white  {
+			color: white;
+		}
+		.allwidth {
+			width: 95%;
+		}
+		.locked {
+			background-color: #111111;
+			color: black;
+		}
+		.locked::before {
+			z-index: 999;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 
+			content: "\00a0\00a0";
+			width: 100%;
+			background-color: green;
+		}
+		.farapart {
+			list-style: none;
+			margin: none;
+		}
+		.farapart > li {
+			margin-top: 1500px;
+		}
 	</style>
 	<meta name="introduction" content="no-reference" />
   </head>
   <body>
-    <h1>You know what I said about no rick rolling, I LIED</h1>
-    <p>BWAHAHAHAHAHAHAHAHAHAHA</p>
-    <iframe width="110" height="200" src="https://www.myinstants.com/instant/rick-rolled-bwhahahahahaha/embed/" frameborder="0" scrolling="no"></iframe>
-    <p>
-      <img src="RICK_ROLL.gif" alt="Chrome" />
-    </p>
-    <a href="morerickrolling.html">AAAAAAA STOP THE RICKROLLING</a>
-  </body>
-</html>
+	  <h1>About This Site</h1>
+   <p>This was created as a homework assignment, but we thought we might as well expand on it. You can search the site <a href="search.html">here.</a></p>
