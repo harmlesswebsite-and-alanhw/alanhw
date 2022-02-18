@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="script.js"></script>
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+	  <pre style="word-break: break-all; word-break: keep-all">Welcome to the ALANHW terminal. Type your commands below.</pre><form style="display: inline; position:sticky;bottom:0;background-color:white;font-family:monospace;" action="javascript:;" id="cmd"><label>ALANHW> <input type="text" style="font-family:monospace;border:none;margin: none; outline: none; padding: none;" name="command" id="command" oninput="if(this.value.length>3) { this.size = this.value.length; }" size="3" /></label></form>
+	 <script>
+		 			 var pre = document.querySelector('pre');
+pre.innerHTML += "\nLoading images...";
+const imgcache = ['Morone-St-PROFILE-PHOTO.png', 'Chromemoroneyellowlight.png', 'Moroneyellowlight3.png', 'https://badhtml.com/pics/captcha.jpg'];
+	imgcache.forEach(function(v) {
+		new Image().src = v;
+	}); 
+pre.innerHTML += "\nLoaded images";
+		 document.getElementById('command').value=''; document.getElementById('cmd').addEventListener('submit', function() {
+			 var command = document.querySelector('#command').value.toLowerCase();
+			 document.querySelector('#command').value = '';
+			 const escapeHtml = (unsafe) => {
+    return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+}
+			 pre.innerHTML += "\nALANHW> " + escapeHtml(command);
+			 if (command === 'morone') {
+		 		pre.innerHTML += "\nYou wanna see Morone St?\nHere:\n<img src=\"Morone-St-PROFILE-PHOTO.png\" alt=\"Morone\" />\nType 'morone1' for something else.";
+			 }
+			 if (command === 'morone1') {
+				 pre.innerHTML += "\n<img src=\"Moroneyellowlight3.png\" alt=\"Yellow light 3\" />\nOr would you prefer:\n<img src=\"Chromemoroneyellowlight.png\" alt=\"Chrome Morone yellow light\" />";
+			 }
+			 if (command === 'format') {
+				 pre.innerHTML += "\nWARNING: All data on drive X will be LOST! Formatting...";
+				 for (var i = 0; i < 10; i++) {
+					 pre.innerHTML += "\n[" + "=".repeat(i) + " ".repeat(10 - i) + "] " + (10 * i) + "%";
+				 }
+				 pre.innerHTML += "\n[==========] 100%";
+			 }
+			 if (command === 'rickroll') {
+				 pre.innerHTML += "\n<img src=\"RICK_ROLL.gif\" alt=\"RICKROLLED!!!\" />";
+			 }
+			 if (command === 'clear') {
+				 pre.innerHTML = 'Welcome to the ALANHW terminal, running on user-agent\n ' + escapeHtml(navigator.userAgent);
+			 }
+			 if (command === 'fart') {
+				 pre.innerHTML += "\nToo much taco bell nub";
+			 }
+			 if (command === 'ya big nub') {
+				 pre.innerHTML += "\nYou're the BIG NUB. You don't even use <a href=\"search.html\">search!</a>"
+			 }
+			if (command === 'table') {
+				pre.innerHTML += '\n<table><tr><th>Name</th><th>Location</th><th>Mass</th></tr><tr><td>Proton</td><td>Nucleus</td><td>1 unit</td></tr><tr><td>Neutron</td><td>Nucleus</td><td>1 unit</td></tr><tr><td>Electron</td><td>Around nucleus</td><td>Negligible mass</td></tr><tr><td>Morone</td><td>On a couch watching TV</td><td>200 KG</td></tr></table>';
+			}
+			if (command === 'homework' || command === 'hw') {
+				pre.innerHTML += "\n<ul><li>1+1 = ______</li><li><img src=\"https://badhtml.com/pics/captcha.jpg\" alt=\"CAPTCHA\" /></li><li>100 more calculus equations</li></ul>";
+			}
+			 if (command === 'poo' || command === 'poop') {
+				 pre.innerHTML += "\nYes, I like eating that too.";
+			 }
+			 if (command === 'search') {
+				 pre.innerHTML += "\n<a href=\"search.html\">SEARCH</a> ya BIG NUB!!!";
+			 }
+			 if (command === 'barf') {
+				 pre.innerHTML += "\n<ol><li>Eat rotten food</li><li>Get stomachache</li><li>Barf!</li><li>YUMMY!!!</li></ol>"
+			 }
+			 window.scrollTo(0,document.body.scrollHeight);
+		 });
+	 </script>
+  <style>
+	  th {
+		  font-weight: normal;
+		  font-style: italic;
+	  }
+  </style>
