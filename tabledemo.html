@@ -1,0 +1,26 @@
+<table>
+	<tr>
+	<th>one</th>
+	<th>two</th>
+<th>three</th></tr>
+	<tr>
+		<td>1</td><td>2</td><td>3</td>	</tr><tr>
+		<td>4</td><td>5</td><td>6</td>	</tr><tr>
+		<td>7</td><td>8</td><td>9</td>	</tr><tr>
+		<td>10</td><td>11</td><td>12</td>	</tr></table>
+  <style>
+	  table, tr, th, td {
+		  border: 1px solid;
+		  border-collapse: collapse;
+		  padding: 7px;
+	  }
+		tr:nth-child(3n) {
+			background-color: gray;
+		}
+	  tr:nth-child(3n - 1) {
+		  background-color: lime;
+	  }
+	  tr:nth-child(3n - 2) {
+		  background-color: skyblue;
+	  }
+  </style>

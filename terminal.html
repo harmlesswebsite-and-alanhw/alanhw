@@ -7,6 +7,10 @@
 	<script src="script.js"></script>
     <title>Photoshopped Images</title>
 	<style>
+		body {
+			background-color: black;
+			color: white;
+		}
 	img {
 		max-width: 100%;
 	}
@@ -47,26 +51,54 @@
 	.newsfeeditem h2 {
 		overflow-wrap: break-word;
 	}
+		.cmd {
+			color: lime;
+		}
+		.working {
+			color: #dddddd;
+			font-style: italic;
+		}
+		img {
+			max-width: 70%;
+		}
 	</style>
 	<meta name="introduction" content="no-reference" />
   </head>
   <body>
-	  <pre style="word-break: break-all; word-break: keep-all">Welcome to the ALANHW terminal. Type your commands below.</pre><form style="display: inline; position:sticky;bottom:0;background-color:white;font-family:monospace;" action="javascript:;" id="cmd"><label>ALANHW> <input type="text" style="font-family:monospace;border:none;margin: none; outline: none; padding: none;" name="command" id="command" oninput="if(this.value.length>3) { this.size = this.value.length; }" size="3" /></label></form>
+	  <pre style="word-break: break-all; word-break: keep-all">Welcome to the ALANHW terminal. Type your commands below.</pre>
+	  <script>
+		  		 var pre = document.querySelector('pre');
+
+		  const escapeHtml = (unsafe) => {
+    return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+} 
+		  function triggerError(message, source, lineno, colno, error) {
+			  var debug = document.createElement('div');
+			  debug.innerHTML = "We're sorry, but an error occurred. \nWe don't like eating errors anymore, \nbut maybe you will:\n " + escapeHtml(message) + "\n from source " + escapeHtml(source) + "\n on line " + lineno + "\n and column " + colno;
+			  debug.style.backgroundColor = 'red';
+			  debug.style.color = 'white';
+			  pre.appendChild(debug);
+		  }
+		  window.onerror = function(message, source, lineno, colno, error) {
+			  triggerError(message, source, lineno, colno, error);
+		  };
+	  </script>
+<form style="display: inline; position:sticky;bottom:0;background-color:white;font-family:monospace;background-color:black;" action="javascript:;" id="cmd"><label>ALANHW> <input autofocus="autofocus" type="text" style="font-family:monospace;border:none;margin: none; outline: none; padding: none;background-color:black;color:white;" name="command" id="command" oninput="if(this.value.length>3) { this.size = this.value.length; }" size="3" /></label></form>
 	 <script>
-		 			 var pre = document.querySelector('pre');
+		 globalThis.cmdhistory = [];
 pre.innerHTML += "\nLoading images...";
-const imgcache = ['Morone-St-PROFILE-PHOTO.png', 'Chromemoroneyellowlight.png', 'Moroneyellowlight3.png', 'https://badhtml.com/pics/captcha.jpg'];
+const imgcache = ['Morone-St-PROFILE-PHOTO.png', 'Chromemoroneyellowlight.png', 'Moroneyellowlight3.png', 'https://badhtml.com/pics/captcha.jpg', 'maps/4.png'];
 	imgcache.forEach(function(v) {
 		new Image().src = v;
 	}); 
 pre.innerHTML += "\nLoaded images";
 		 document.getElementById('command').value=''; document.getElementById('cmd').addEventListener('submit', function() {
 			 var command = document.querySelector('#command').value.toLowerCase();
+			 var cmdField = 			 document.querySelector('#command');
+
+			 var usecommand = document.querySelector('#command').value;
 			 document.querySelector('#command').value = '';
-			 const escapeHtml = (unsafe) => {
-    return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
-}
-			 pre.innerHTML += "\nALANHW> " + escapeHtml(command);
+			 pre.innerHTML += "\n<span class=\"cmd working\">ALANHW> " + escapeHtml(usecommand) + "</span>";
 			 if (command === 'morone') {
 		 		pre.innerHTML += "\nYou wanna see Morone St?\nHere:\n<img src=\"Morone-St-PROFILE-PHOTO.png\" alt=\"Morone\" />\nType 'morone1' for something else.";
 			 }
@@ -104,15 +136,118 @@ pre.innerHTML += "\nLoaded images";
 			 if (command === 'search') {
 				 pre.innerHTML += "\n<a href=\"search.html\">SEARCH</a> ya BIG NUB!!!";
 			 }
+			 if (command === 'embed') {
+				 pre.innerHTML += "\nIf you really care, please paste this iframe code:\n";
+				 pre.innerHTML += escapeHtml('<button \nonclick=\n"window.open(\'https://alanhw.weeklyd3.repl.co/terminal.html\', \'alanhw\', \'height=500,width=700\');">\n Open in new window\n</button>\n<iframe \n src="https://alanhw.weeklyd3.repl.co/terminal.html" \n style="width: 100%; height: 80%; border: none;">\n</iframe>');
+			 }
 			 if (command === 'barf') {
 				 pre.innerHTML += "\n<ol><li>Eat rotten food</li><li>Get stomachache</li><li>Barf!</li><li>YUMMY!!!</li></ol>"
 			 }
-			 window.scrollTo(0,document.body.scrollHeight);
+			 if (command === 'loop') {
+				 var times = Math.round(Math.random() * 1000);
+				 var digits = (times + "").length;
+				 pre.innerHTML += "\nRepeating rickroll lyrics " + times + " time(s).";
+				 for (i = 0; i < times; i++) {
+					 var ilength = ((i + 1) + "").length;
+					 spaces = digits - ilength;
+					 pre.innerHTML += "\n" + (i + 1) + "." + " ".repeat(spaces) + " NEVER GONNA GIVE YOU UP, LET YOU DOWN, RUN AROUND, AND POOP YOU.</li>";
+				 }
+			 }
+			 if (command === 'roblox') {
+				 pre.innerHTML += '\n<img src="maps/4.png" alt="Map" />\nThere is no way out. Happy?';
+			 }
+			 if (command === 'history' || command == 'h') {
+				 pre.innerHTML += "\nCommand history:";
+				 console.log(cmdhistory);
+				pre.appendChild(gethistory());
+			 }
+			if (['steves poo-poo', 'steves poo poo', 'shreveport', 'houston shreveport'].includes(command)) {
+				var photoshopDemo = document.createElement('div');
+				var photoshopTutorial = ["Houston Shreveport", "sShreve port", " Shrevesport", "Shrevesport", "Strevesport", "Stevesport", "Steves port", "Steves poot", "Steves poo ", "Steves poo poo", "Steves poo-poo"];
+				var currentIndex = 1;
+				photoshopDemo.innerHTML = photoshopTutorial[0];
+				photoshopDemo.style.backgroundColor = 'lime';
+				photoshopDemo.style.color = 'black';
+		 		pre.appendChild(photoshopDemo);
+				var psInterval = setInterval(function() {
+
+		 			photoshopDemo.innerHTML = photoshopTutorial[currentIndex];
+					if (photoshopTutorial[currentIndex + 1] === undefined || photoshopTutorial[currentIndex + 1] === null) {
+						clearInterval(psInterval);
+					}
+		 currentIndex++;
+				}, 750);
+			}
+		 if (command.startsWith("invoke:")) {
+			 var confirm = document.createElement('form');
+			 confirm.innerHTML = "Running arbitary scripts may put your computer at danger. \nDo you want to continue? ('y' to continue, anything else to cancel)\n";
+			 confirm.action = 'javascript:;';
+			 var field = document.createElement('input');
+			 field.name = 'confirm';
+			 field.classList.add('transparent');
+			 confirm.appendChild(field);
+			 pre.appendChild(confirm);
+			 field.focus();
+			 confirm.addEventListener('submit', function() {
+				 cmdField.focus();
+				 field.disabled = 'disabled';
+				 if (confirm.querySelector('input').value.toLowerCase() != 'y') {
+					 pre.innerHTML += '<span style="background-color: red;color:white;">ERROR: Script run aborted by user.</span>';
+					 return};
+			 try {pre.innerHTML += "\nCode executed. Return value:" + '\n<span style="background-color: lime; color: black;">' + JSON.stringify(eval("(function(){" + usecommand.slice(7) + "})();")) + '</span>';}
+			 catch (e) {
+				 pre.innerHTML += '<span style="background-color: red;color:white;">\nERROR: ' + escapeHtml(e.toString()) + '</span>';
+				 pre.innerHTML += '\nCode executed:\n<strong>' + escapeHtml(usecommand.slice(7)) + "</strong>";
+			 }
+				 			 			 window.scrollTo(0,document.body.scrollHeight);
+
+		 })};
+		 if (command === 'error') {
+			 JSON.parse("'bad_json_string'");
+		 }
+			 if (command === 'exit') {
+				 pre.innerHTML += "\nAttempting to close window...";
+				 window.close();
+			 }
+			 if (command === 'prize') {
+				 triggerError('Hecker has HECKED YOUR PC. The following are at risk:\n\n - Fecesbook logins\n - Passwords\n - Personal information\n\nPlease give someone the error code SPYWARE.', "Hecker", '-1', '-1', {});
+				 var errorSpan = document.createElement('div');
+				 errorSpan.innerHTML = "Unable to connect to terminal, warning: HECKER_PC_HACK. Retrying in 10 seconds, this is try 1";
+				 document.querySelector('#cmd').innerHTML = "ALANHW> Please wait for the command to complete."
+				 pre.appendChild(errorSpan);
+				 window.scrollTo(0,document.body.scrollHeight);
+		 globalThis.norm = true;
+setInterval(function() {
+					 var existingNum = errorSpan.innerHTML.slice(92);
+					 existingNum = parseInt(existingNum) + 1;
+					 errorSpan.innerHTML = "Unable to connect to terminal, warning: HECKER_PC_HACK. Retrying in 10 seconds, this is try " + existingNum;
+				 }, 10000);			 }
+		 globalThis.cmdhistory.push(usecommand);
+			 if (!globalThis.norm) {var commands = document.querySelectorAll('.cmd');
+			 if (commands.length > 0)
+			 document.querySelectorAll('.cmd')[commands.length - 1].classList.remove('working');}
+			 			 window.scrollTo(0,document.body.scrollHeight);
+
 		 });
+		 function gethistory() {
+			 			 const historylist = document.createElement('ul');
+				 for (var i = 0; i < cmdhistory.length; i++) {
+					 var item = document.createElement('li');
+					 item.innerHTML = escapeHtml(cmdhistory[i]);
+					 historylist.appendChild(item);
+				 }
+			 return historylist;
+		 }
 	 </script>
   <style>
 	  th {
 		  font-weight: normal;
 		  font-style: italic;
+	  }
+	  .transparent {
+		  font-family: monospace;
+		  border: none;
+		  background-color: transparent;
+		  outline: none;
 	  }
   </style>
