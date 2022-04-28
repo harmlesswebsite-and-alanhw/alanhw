@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="script.js"></script>
+    <title>ARRRRGH YOU ARE ABOUT TO BE PASSED</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Don't touch that just yet. I'm thinking about something -->
+      <p>There is a sign below with the words out of order. Please re-order them.</p>
+      <p>(<a href="nosmokingsafetyfirst.png" download="">Download hint</a>)</p>
+      <div style="font-size: 40px; display: inline-block; border: 5px solid black; padding: 3px;">
+          <strong>NOTICE:</strong><br />
+      <ul id="sortable" style="display: inline; padding: 0;">
+ <li>No</li><li>First</li><br /><li>Smoking</li><li>Safety</li>
+</ul>
+      </div>
+      <div id="nosort"></div>
+      <div id="result"></div>
+      <button onclick="submit()">I am done</button>
+<script>
+    $('#sortable').sortable();
+</script>
+<style>
+    ul#sortable {
+        list-style: none;
+    }
+    ul#sortable li {
+        font-size: 40px;
+        display: inline-block;
+        cursor: grab;
+        border: 1px solid gray;
+        padding: 7px;
+        border-radius: 7px;
+        margin: 6.5px;
+        background-color: white;
+    }
+    .ui-sortable-helper {
+        background-color: blue !important;
+        color: white;
+        cursor: grabbing !important;
+    }
+    .noborder {
+        border: none !important;
+    }
+</style>
+<script>
+    function submit() {
+        $("#sortable").sortable("destroy");
+        document.querySelector('#nosort').textContent = 'You cannot sort further. Sort finalized.';
+        var lis = document.querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].classList.add('noborder');
+        }
+        if (document.querySelector('#sortable').textContent.trim() === "NoSafetySmokingFirst") {
+            return document.getElementById('result').innerHTML = '<div style="font-size: 30px;">WATT!? <a href="alanhw13.html">Continue?</a></div>';
+        }
+        if (document.querySelector('#sortable').textContent.trim() === "NoSmokingSafetyFirst") {
+            return location.href = '/moronequiz5pre.html';
+        }
+        document.body.textContent = 'Check your sorting. It must be a problem with your sorting.';
+        this.hidden = 'hidden';
+    }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+	body {
+		background: url(BSIV.png);
+		background-size: 100%;
+	}
+	</style>
+  </head>
+  <body>
+      <p id="status">DO NOT PRESS THE RED BUTTON.</p>
+      <script>
+          function shutdown() {
+              setTimeout(function() {
+                  location.href = '/shutdown.html';
+              }, 3000);
+              document.getElementById('status').textContent = 'System shutting down in ЗООО ms.';
+          }
+      </script>
+      <a onclick="shutdown()" href="javascript:;" onmousedown="this.children[0].src='Redbuttonclicked.svg';" onmouseup="this.children[0].src='Redbutton.svg';"><img src="Redbutton.svg" alt="Red button" height="100" onmousedown="this.src='Redbuttonclicked.svg';" onmouseup="this.src='Redbutton.svg';" /></a>
+      <img height="0" src="Redbuttonclicked.svg" />

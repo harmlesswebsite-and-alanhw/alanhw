@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head><meta name="viewport" content="width=device-width,initial-scale=1.0" /></head><body>
+<style>body, html{margin:0; padding: 0;}</style>
+<div id="base-captcha" style="display: inline-block; border: 2px solid gray; background-color: white; font-size: 16px; padding: 7px;" onclick="answer()">[?] I'm not a Morone</div>
+<div style="display: none; border: 2px solid gray; background-color: white; font-size: 16px; padding: 7px;" id="question"><form onsubmit="submitCaptcha()" action="javascript:;"><nobr><input style="font-size: 14px; padding: none; outline: none;" id="captcha" placeholder="Long S (1 / (1 + x^2)) dx" size="25" onkeydown="if (event.keyCode === 13) submitCaptcha()" />
+<input type="submit" value="Check" onclick="submitCaptcha()" /></nobr>
+</form></div>
+<div hidden="hidden" id="completeHandler"></div>
+<div hidden="hidden" id="incorrectHandler"></div>
+<script>
+    function answer() {
+        document.getElementById('base-captcha').style.display = 'none';
+        document.querySelector('#question').style.display = 'inline-block';
+    }
+    function submitCaptcha() {
+        console.log('Submitting');
+        if (document.getElementById('captcha').value.toLowerCase() === "illuminati") {
+            console.log('Right');
+            submitRight();
+        } else {
+            console.log('Wrong');
+            submitWrong();
+        }
+    }
+    function submitRight() {
+        document.getElementById('completeHandler').click();
+    }
+    function submitWrong() {
+        document.getElementById('incorrectHandler').click();
+    }
+</script>
+</body></html>

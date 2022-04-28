@@ -98,6 +98,15 @@
   }
   document.getElementById('choice').addEventListener('change', function() {
 	switch (document.getElementById('choice').value) {
+        case "notps":
+            putValue('Here:', "https://drive.google.com/drive/folders/1zDI1-tyZa1nQRg-WZOQUkelYTt9zi-JF?usp=sharing");
+            break;
+        case "otherps":
+            putValue('here', "https://drive.google.com/drive/folders/1-HJul2ptkRxDVmZZdFXUqxboEnbjNAzM?usp=sharing");
+            break;
+        case "oddtrfsgn":
+            putValue('Please categorize them here:', "https://drive.google.com/drive/folders/1Y9zDSqKM1gU1Lphrwsx2QrbZ6vCRd2zS?usp=sharing");
+            break;
 		case "weirdsrtnm":
 			putValue("Upload them below:", "https://drive.google.com/drive/folders/1T5_-timm0uIIq4YGtWBzzivvu-DrtokK?usp=sharing");
 			break;
@@ -114,8 +123,8 @@
 			putValue("This should be a GIF:<br /><img src=\"loadinganimation.gif\" alt=\"The GIF\" /><br />Click below if it does not display.", "loadinganimation.gif?param=1");
 			break;
 		case "rick":
-			putValue("Please wait. Click below if you are not redirected.", "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-			window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+			putValue("Please wait. Click below if you are not redirected.", "alanhw133.html");
+			window.location.href = 'alanhw133.html';
 			break;
 		default:
 			putValue("Hmm, that's weird. Click below to reload.", "alanhw11.html?purgea=1");

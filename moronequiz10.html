@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="script.js"></script>
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+<body>
+  <figure>
+      <audio controls="controls" src="kentmistry.m4a" />
+          <figcaption>Listen to this</figcaption>
+  </figure>
+<p>HEY HEY HEY HEY HEY!!!!</p>
+<p>DID YOU SEE THE NEW IMAGES I UPLOADED</p>
+<p>I AM ALSO REALLY BAD AT CHENTMISTRY TEST?</p>
+<p>I GOT A ___/10</p>
+<p>What did Timmy Get in the Chentmistry Test?</p>
+  <input placeholder="10" size="6" id="nickbutt" />? 
+          <!-- correct answer: 3 --><br />
+          <button onclick="check()">Soobmit</button>
+      </center>
+    <!-- Actually try listening to the audio -->
+      <script>
+          function lose() {
+              alert('Try again in З seconds');
+              document.getElementById('nickbutt').disabled = 'disabled';
+              setTimeout(function() {
+                  document.getElementById('nickbutt').disabled = '';
+              }, 3000);
+          }
+          function check() {
+              if (document.getElementById('nickbutt').value.toLowerCase() !== "3") {
+                  lose();
+              } else {
+                  location.href = 'moronequiz8.html';
+              }
+          }
+      </script>

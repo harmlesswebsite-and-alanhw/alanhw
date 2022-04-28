@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="script.js"></script>
+    <title>Another Morone Quiz</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+      <details>
+          <summary>Hint:</summary>
+          <img src="dangstorffandleland.png" alt="Dangstorff and leland" />
+      </details>
+<img src="Morone-St-PROFILE-PHOTO.png" alt="image" /></p>
+      <label>Where is this?<br />
+  <select name="answer" autocomplete="off" onchange="submit()">
+      <option disabled="disabled" selected="selected">Choose...</option>
+      <option>San Tomas and Morone</option>
+		  <option value="Lawrence Expy and Morone St">Lawrence Expy and Morone St</option>
+		  <option value="Stevens Creek and Morone">Stevens Creek and Morone</option>
+		  <option value="Morone and Chrome Dr.">Morone and Chrome Dr.</option>
+		  <option value="Lawrence St and Morone Way">Lawrence St and Morone Way</option>
+		  <option value="Bellomy and Morone">Bellomy and Morone</option>
+		  <option value="Morone St and Indio Blvd">Morone St and Indio Blvd</option>
+		  <option value="Morone St, Morone City">Morone St, Morone City</option>
+		  	  </select>
+      </label>
+      <div id="youchose" hidden="hidden">
+          You chose
+          <b id="youchosei"></b>
+      </div>
+<div id="result" hidden="hidden">
+			<p>INCORRECT!!!</p><p>YOURE A MORONE. I KNEW IT! you will go to the morone area in З seconds</p>
+</div>
+      <div id="win" hidden="hidden"><p>Correct!</p>
+      <p><a href="moronequizЗ.html">Continue</a></p>
+      </div>
+      <script>
+          function submit() {
+              var index = document.querySelector('select').selectedIndex;
+              document.getElementById('win').hidden = 'hidden';
+            document.getElementById('result').hidden = 'hidden';
+              if (index === 1) {
+                  document.getElementById('win').removeAttribute('hidden');
+              } else {
+                  document.getElementById('result').removeAttribute('hidden');
+                  setTimeout(function() {
+                      location.href = 'alanhw133.html';
+                  }, 3000);
+              }
+              document.querySelector('select').disabled = 'disabled';
+              document.getElementById('youchose').style.display = 'block';
+              document.getElementById('youchosei').textContent = document.querySelector('select').options[document.querySelector('select').selectedIndex].textContent;
+              document.querySelector('label').style.display = 'none';
+          }
+      </script>
+</body>

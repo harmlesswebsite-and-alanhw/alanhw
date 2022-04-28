@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Locations of common photoshops</title>
+	<style>
+        body, html {
+            padding: 0;
+            margin: 0;
+        }
+	img {
+		max-width: 100%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+
+	}
+	summary {
+		list-style: none;
+	}
+	.width100 {
+		width: 100%;
+		height: 100vh;
+	}
+				.fakenotlink {
+			color: inherit;
+			text-decoration: none;
+			pointer: default;
+		}
+		label {
+			padding: 2px;
+			border: 1px solid;
+		}
+		.white  {
+			color: white;
+		}
+		.allwidth {
+			width: 95%;
+		}
+		.locked {
+			background-color: #111111;
+			color: black;
+		}
+		.locked::before {
+			z-index: 999;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 
+			content: "\00a0\00a0";
+			width: 100%;
+			background-color: green;
+		}
+		.farapart {
+			list-style: none;
+		}
+		.farapart > li {
+			margin-top: 1500px;
+		}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+
+      <div id="map" style="width: 100vw; height: 100vh;">Map loading...<br /><noscript>JavaScript is required to view the map.</noscript></div>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.min.css" integrity="sha512-oIQ0EBio8LJupRpgmDsIsvm0Fsr6c3XNHLB7at5xb+Cf6eQuCX9xuX8XXGRIcokNgdqL1ms7nqbQ6ryXMGxXpg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script>
+          var map = L.map('map').setView([37.352702, -122.0033201], 15);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+          L.marker([37.310311192204566, -122.00294418494698]).addTo(map)
+    .bindPopup('Location of Johnson duped square lights:<br /><ul><li>Johnson duped square lights</li><li>Johnson duped green lights</li><li>Johnson all faliure lights</li><li>Johnson duped yellow square lights</li><li>OOps wrong sign</li><li>EEps right sign</li></ul>');
+          L.marker([37.31653686313156, -121.91100417646827])
+          .addTo(map)
+          .bindPopup('Parkmoor and Race, used in several photoshops:<ul><li>Parkless yellow lights 1-3, and 5-8.</li><li>Parkmoor and Race.png</li></ul>');
+          L.marker([34.01937024395998, -117.54123053356166])
+          .addTo(map).bindPopup('Location of the first <em>really hard</em> image');
+          map.setView([37.352702, -122.0033201], 15);
+          L.marker([32.69438322944333, -116.07043267598496]).addTo(map).bindPopup('Two sides of I-8 are so far apart<br />(rationale: Those run on two separate canyons)');
+          L.marker([32.57469581204369, -116.02397077545999]).addTo(map).bindPopup('More far-away sides<br />(rationale: those two sides run on mountains.)');
+          L.marker([41.41766637099729, -110.13631470671805]).addTo(map).bindPopup('Even more far-away two sides of the road<br />(rationale: Also on mountains)');
+          L.marker([34.43574186748391, -112.03992240896301]).addTo(map).bindPopup('More far away sides');
+</script>

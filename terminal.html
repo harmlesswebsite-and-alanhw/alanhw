@@ -7,6 +7,9 @@
 	<script src="script.js"></script>
     <title>Photoshopped Images</title>
 	<style>
+		pre {
+			word-wrap: break-word;
+		}
 		body {
 			background-color: black;
 			color: white;
@@ -61,20 +64,63 @@
 		img {
 			max-width: 70%;
 		}
+		a {
+			color: inherit !important;
+		}
+		.sysmsg {
+			padding-left: 7px;
+			border-left: 2px solid;
+			margin: 2px;
+		}
+		.sysmsg::before {
+			content: "System message:";
+			font-weight: 700;
+			display: block;
+			background-color: lime;
+			color: black;
+			border-bottom: 2px solid;
+		}
 	</style>
 	<meta name="introduction" content="no-reference" />
   </head>
   <body>
-	  <pre style="word-break: break-all; word-break: keep-all">Welcome to the ALANHW terminal. Type your commands below.</pre>
+	  <script src="https://harmlesswebsite.leoshi6.repl.co/script.js"></script>
+	  <script>
+		  var clearedText = `<div id="stuff" style=" background: rgb(0,0,255); background: linear-gradient(90deg, rgba(0,0,255,0.1) 0%, rgba(0,255,0,1) 100%); color: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%); ">If you see this message, this means that the underlying harmlesswebsite system has not started up yet. Try:<ul><li>Adding a place to go to (<code>invoke:goto('home')</code> instead of <code>invoke:goto()</code>)</li><li>Checking that the point you want to go to is accurate.</li></ul>
+<p>You can <button onclick="goto('home')">click here</button> to force harmlesswebsite to start, or <button onclick="document.getElementById('output').style.display = 'none';">click here</button> to close this dialog.</div>`;
+		  var dialogHideText = `<div class="sysmsg">You have closed harmlesswebsite. To re-open it, please
+execute <b>invoke:goto()</b> or click <a href="javascript:;" onclick="document.getElementById('output').style.display = 'block';">here</a>.
+
+Alternatively, to reset harmlesswebsite (you <strong>will</strong>
+lose any progress), please click <a href="javascript:;" onclick="document.getElementById('baudy').innerHTML = clearedText;">here</a>.</div>`;
+			  </script>
+	  <div id="colorPopup" style="z-index: 3329; position: fixed; bottom: 0; right: 0; background-color: white; color: black; display: none; overflow: hidden;">
+		  <div style="position: sticky; background-color: cyan; top: 0;"><b>Color</b> (<button onclick="document.getElementById('colorPopup').style.display = 'none';">&times;</button>)</div>
+		  <div id="colorPopupDIV" style="width: 100%; height: 100px;"></div>
+		  <button onclick="goto('randomizeColor');">Choose another color</button>
+	  </div>
+	  <div id="output" style="max-height: 75%; z-index: 3328; position: fixed; top: 0; background-color: white; color: black; display: none; overflow: scroll; min-height: calc(1em + 20px); resize: both;">
+		  <div style="position: sticky; background-color: cyan; top: 0;"><b style="background-color: cyan;">harmlesswebsite simulator - <code id="taitl">A very harmless website</code></b> <span style="background-color: cyan;">(<button onclick="document.getElementById('output').style.display = 'none'; pre.innerHTML += dialogHideText; ">&times;</button>)</span></div>
+		  <div id="baudy" style="background-color: white; color: black; padding: 3px;"></div>
+		  <div style="border:1px solid; background-color: #cccccc; position: sticky; bottom: 0;">
+		  <small>Legalese: harmlesswebsite's content is licensed under CC BY-SA 4.0.</small>
+		  </div>
+		  <script>document.getElementById('baudy').innerHTML = clearedText;</script>
+	  </div>
+	  <pre style="word-break: break-all; word-break: keep-all">Welcome to the ALANHW terminal. Type your commands below.
+	  
+Two GUI windows are available:<ol><li>Harmlesswebsite (<a href="javascript:;" onclick="document.getElementById('output').style.display = 'block';">open</a> or <b>invoke:goto()</b>)</li><li>Color randomizer (<a href="javascript:;" onclick="goto('randomizeColor');">open</a> or <b>invoke:goto('randomizeColor')</b>, also accessible through harmlesswebsite)</li></ol></pre>
 	  <script>
 		  		 var pre = document.querySelector('pre');
 
 		  const escapeHtml = (unsafe) => {
     return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 } 
-		  function triggerError(message, source, lineno, colno, error) {
+		  function triggerError(message, source, lineno, colno, error, escape = true) {
 			  var debug = document.createElement('div');
-			  debug.innerHTML = "We're sorry, but an error occurred. \nWe don't like eating errors anymore, \nbut maybe you will:\n " + escapeHtml(message) + "\n from source " + escapeHtml(source) + "\n on line " + lineno + "\n and column " + colno;
+			  var msg = message;
+			  if (escape) msg = escapeHtml(msg);
+			  debug.innerHTML = "We're sorry, but an error occurred. \nWe don't like eating errors anymore, \nbut maybe you will:\n " + msg + "\n from source " + escapeHtml(source) + "\n on line " + lineno + "\n and column " + colno;
 			  debug.style.backgroundColor = 'red';
 			  debug.style.color = 'white';
 			  pre.appendChild(debug);
@@ -194,7 +240,7 @@ pre.innerHTML += "\nLoaded images";
 				 if (confirm.querySelector('input').value.toLowerCase() != 'y') {
 					 pre.innerHTML += '<span style="background-color: red;color:white;">ERROR: Script run aborted by user.</span>';
 					 return};
-			 try {pre.innerHTML += "\nCode executed. Return value:" + '\n<span style="background-color: lime; color: black;">' + JSON.stringify(eval("(function(){" + usecommand.slice(7) + "})();")) + '</span>';}
+			 try {pre.innerHTML += "\nCode executed. Return value:" + '\n<span style="background-color: lime; color: black;">' + escapeHtml(JSON.stringify(eval("(function(){" + usecommand.slice(7) + "})();"))) + '</span>';}
 			 catch (e) {
 				 pre.innerHTML += '<span style="background-color: red;color:white;">\nERROR: ' + escapeHtml(e.toString()) + '</span>';
 				 pre.innerHTML += '\nCode executed:\n<strong>' + escapeHtml(usecommand.slice(7)) + "</strong>";
@@ -208,6 +254,12 @@ pre.innerHTML += "\nLoaded images";
 			 if (command === 'exit') {
 				 pre.innerHTML += "\nAttempting to close window...";
 				 window.close();
+			 }
+			 if (command === 'python3' || command === 'python') {
+				 pre.innerHTML += "\nCompiling from source code files...";
+				 setTimeout(function() {
+					 triggerError('Compile error:\n  At file "printText.c", line 3328, column 18, the can error occurred:\n  <b>        // I am not a programmer</b>\n                  ^^^ ^ ^^^^^^^^^^\n  Of course you are!', "Python compiler", "3328", "18", {type:"CompileError"}, false);
+				 }, 1000);
 			 }
 			 if (command === 'prize') {
 				 triggerError('Hecker has HECKED YOUR PC. The following are at risk:\n\n - Fecesbook logins\n - Passwords\n - Personal information\n\nPlease give someone the error code SPYWARE.', "Hecker", '-1', '-1', {});

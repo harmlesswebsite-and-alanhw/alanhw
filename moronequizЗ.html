@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="script.js"></script>
+    <title>Another ANOTHER Morone Quiz</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+      <center id="play1">
+<img src="/dangstorffandleland.png" alt="Yellow fake square lights at the intersection of S Dangstorff Ave and Leland Ave" />
+          <div style="font-size: 55px;"><strong>What are these lights called</strong>?</div>
+          <div style="font-size: 30px;">
+          <button onclick="lose()" style="font-size: 30px;">Round Square Lights</button>
+          <button onclick="lose()" style="font-size: 30px;">Sad Square lights</button>
+          <button onclick="this.parentNode.parentNode.style.display = 'none'; document.getElementById('play2').hidden = '';" style="font-size: 30px;">Fake Square Lights</button>
+      </div>
+      </center>
+      <script>
+          function lose() {
+              document.body.textContent = 'YOU LOST. Redirecting to start in З seconds.';
+              setTimeout(function() { location.href = '/alanhw133.html';}, 3000);
+          }
+      </script>
+      <center id="play2" hidden="hidden">
+                                             <div style="font-size: 55px;">What is 1 + 1</div>
+      <button onclick="lose()">3</button>
+          <button onclick="lose()">11</button>
+          <div style="height: 100vh;">&nbsp;</div>
+          <button style="font-size: 3px; padding: 0; border: none; background-color: transparent;" onclick="this.parentNode.hidden = 'hidden'; document.getElementById('play3').style.display = 'block';">з</button>
+      </center>
+      <center id="play3" style="display: none;">
+          Fill in the blank:<br />
+          FLUTE: Where's <input placeholder="Bottom" size="6" id="nickbutt" />? If he comes not, then the play goes not forward.
+          <!-- correct answer: Buttom --><br />
+          <button onclick="bottom()">Soobmit</button>
+      </center>
+      <script>
+          function bottom() {
+              if (document.getElementById('nickbutt').value.toLowerCase() !== "buttom") {
+                  lose();
+              } else {
+                  document.getElementById('play3').style.display = 'none';
+                  location.href = '/moronequiz4.html';
+              }
+          }
+      </script>

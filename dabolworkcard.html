@@ -1,0 +1,195 @@
+<p>Solve this to continue. This is attempt <span id="attempt">1</span>.</p>
+<table id="answers">
+<tr>
+<th>
+#
+</th>
+<th>Question</th>
+<th>Your Answer</th>
+<th>Status</th>
+</tr>
+</table>
+<input type="button" onclick="goto('submitMeth')" value="Submit" />
+
+<a href="elephant.html" id="quizPass" style="display: none;">Next Level</a>
+<p>History:</p>
+<ul id="correcthist">
+<li>Attempt 1: in progress</li>
+</ul>
+<script>
+	globalThis.correctHistory = [];
+	var tableQuestions = [
+				{
+					content: "What is 1 + 1?",
+					answer: "З"
+				},
+				{
+					content: "1ббЧ + 1ббЧ",
+					answer: "зз28"
+				},
+				{
+					content: "I have 9 buckets of candy. I eat 69. What do I have now?",
+					answer: "diabetes"
+				},
+				{
+					content: "Fill in the blank: <code>______ entrance Fart I 280 Barf",
+					answer: "Feeway"
+				},
+				{
+					content: "Fill in the blank: <code>Feeway ________ Fart I 280 Barf</code>",
+					answer: "entrance"
+				},
+				{
+					content: "Fill in the blank: <code>Feeway entrance ____ I 280 Barf</code>",
+					answer: "fart"
+				},
+				{
+					content: "Fill in the blank: <code>Feeway entrance Fart _ 280 Barf</code>",
+					answer: "I"
+				},
+				{
+					content: "Fill in the blank: <code>Feeway entrance Fart I ___ Barf</code>",
+					answer: "280"
+				},
+				{
+					content: "One more time: Fill in the blank: <code>Feeway entrance Fart I 280 ____</code>",
+					answer: "barf"
+				},
+				{
+					content: "What room does Algebra 1 p6 normally take place in?",
+					answer: "2Ч5"
+				},
+				{
+					content: "In which room did it take place on 3/21/2022?",
+					answer: "ЗО2"
+				}
+			];
+			globalThis.mathHW = tableQuestions;
+			globalThis.attempts = 0;
+			for (var i = 0; i < tableQuestions.length; i++) {
+				var tr = document.createElement('tr');
+				var questionNumber = document.createElement('td');
+				questionNumber.textContent = (i + 1) + ".";
+				tr.appendChild(questionNumber);
+				var question = document.createElement('label');
+				var leftColumn = document.createElement('td');
+				question.setAttribute('for', "mathproblem" + i);
+				question.innerHTML = tableQuestions[i].content;
+				leftColumn.appendChild(question);
+				tr.appendChild(leftColumn);
+				var rightColumn = document.createElement('td');
+				var ansInput = document.createElement('input');
+				ansInput.setAttribute('style', 'border:1px solid black;');
+				ansInput.type = 'text';
+				ansInput.id = "mathproblem" + i;
+				rightColumn.appendChild(ansInput);
+				tr.appendChild(rightColumn);
+				var questionstatus = document.createElement('td');
+				console.log(typeof questionstatus);
+				questionstatus.id = 'mathstatus' + i;
+				questionstatus.textContent = "Not graded yet";
+				tr.appendChild(questionstatus);
+				document.querySelector('#answers').appendChild(tr);
+			}
+function goto(point) {
+	switch (point) {
+		case 'submitMeth':
+			globalThis.attempts++;
+			document.getElementById('attempt').textContent = globalThis.attempts + 1;
+			var tableQuestions = globalThis.mathHW;
+			globalThis.correct = 0;
+			
+			for (var i = 0; i < tableQuestions.length; i++) {
+				var input = document.getElementById('mathproblem' + i);
+				var answer = globalThis.mathHW[i].answer;
+				if (input.value.toLowerCase() !== answer.toLowerCase()) {
+					input.setAttribute('style', 'border: 1px solid red;');
+					if (input.value === '') {
+						document.getElementById('mathstatus' + i).innerHTML = '<b style="color: red;">Blank</b>';
+					} else {
+					document.getElementById('mathstatus' + i).innerHTML = '<b style="color: red;">Incorrect</b>';
+					}
+				} else {
+					console.log('correct');
+					globalThis.correct = globalThis.correct + 1;
+					console.log(globalThis.correct);
+					input.setAttribute('style', 'border: 1px solid green');
+					document.getElementById('mathstatus' + i).innerHTML = '<b style="color: green;">Correct!</b>';
+				}
+			}
+			console.log('-----');
+			console.log(globalThis.correct);
+				console.log(globalThis.correctHistory);
+
+			if (globalThis.correct === tableQuestions.length) {
+				document.getElementById('quizPass').style.display = 'block';
+			}
+				globalThis.correctHistory.push(globalThis.correct);
+					document.querySelector('#correcthist').innerHTML = '';
+				for (var i = 0; i < globalThis.correctHistory.length; i++) {
+					var item = document.createElement('li');
+					item.textContent = "Attempt " + (i + 1) + ": " + globalThis.correctHistory[i] + "/" + tableQuestions.length + " correct";
+					document.querySelector('#correcthist').appendChild(item);
+				}
+				var inProgress = document.createElement('li');
+				inProgress.textContent = "Attempt " + (globalThis.correctHistory.length + 1) + ": In progress";
+				document.querySelector('#correcthist').appendChild(inProgress);
+			
+			break;
+			case 'submitMeth':
+			globalThis.attempts++;
+			document.getElementById('attempt').textContent = globalThis.attempts + 1;
+			var tableQuestions = globalThis.mathHW;
+			globalThis.correct = 0;
+			
+			for (var i = 0; i < tableQuestions.length; i++) {
+				var input = document.getElementById('mathproblem' + i);
+				var answer = globalThis.mathHW[i].answer;
+				if (input.value.toLowerCase() !== answer.toLowerCase()) {
+					input.setAttribute('style', 'border: 1px solid red;');
+					if (input.value === '') {
+						document.getElementById('mathstatus' + i).innerHTML = '<b style="color: red;">Blank</b>';
+					} else {
+					document.getElementById('mathstatus' + i).innerHTML = '<b style="color: red;">Incorrect</b>';
+					}
+				} else {
+					console.log('correct');
+					globalThis.correct = globalThis.correct + 1;
+					console.log(globalThis.correct);
+					input.setAttribute('style', 'border: 1px solid green');
+					document.getElementById('mathstatus' + i).innerHTML = '<b style="color: green;">Correct!</b>';
+				}
+			}
+			console.log('-----');
+			console.log(globalThis.correct);
+				console.log(globalThis.correctHistory);
+
+			if (globalThis.correct === tableQuestions.length) {
+				document.getElementById('quizPass').style.display = 'block';
+			}
+				globalThis.correctHistory.push(globalThis.correct);
+					document.querySelector('#correcthist').innerHTML = '';
+				for (var i = 0; i < globalThis.correctHistory.length; i++) {
+					var item = document.createElement('li');
+					item.textContent = "Attempt " + (i + 1) + ": " + globalThis.correctHistory[i] + "/" + tableQuestions.length + " correct";
+					document.querySelector('#correcthist').appendChild(item);
+				}
+				var inProgress = document.createElement('li');
+				inProgress.textContent = "Attempt " + (globalThis.correctHistory.length + 1) + ": In progress";
+				document.querySelector('#correcthist').appendChild(inProgress);
+			
+			break;
+	case 'quizPass':
+			document.body.innerHTML = `
+<h1>You got a...</h1>
+<center><button onclick="this.parentNode.setAttribute('style', 'font-size: 40px;'); this.parentNode.innerHTML = '11 out of 11'; document.getElementById('morecontent').style.display = 'block'; taitl('You won level 2 as well!')">Click to find out!</button></center>
+<div id="morecontent" style="display: none;">
+<center style="font-size: 20px;">
+Wow, You are 1 step closer to proving ur not a morone!
+</center>
+</div>
+`;
+			break;
+	}
+}
+</script>

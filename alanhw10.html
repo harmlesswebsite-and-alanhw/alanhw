@@ -57,17 +57,17 @@
   <h1>What did you expect?</h1>
   <p>Please rate our page.</p>
   <details>
-  <summary>&raquo; Bad</summary>
+  <summary onclick="location.href='/alanhw133.html'">&raquo; Bad</summary>
   </details>
   <details>
-  <summary>&raquo; Medium</summary>
+  <summary onclick="location.href='/alanhw133.html'">&raquo; Medium</summary>
   </details>
   <details>
-  <summary>&raquo; Good</summary>
+  <summary id="summary">&raquo; Good</summary>
   </details>
   <p id="votesubmit">Please vote!</p>
   <script>
-  document.querySelectorAll('summary').forEach(function(v) {
+  document.querySelectorAll('#summary').forEach(function(v) {
 	v.addEventListener('click', function() {
 		document.getElementById('votesubmit').innerHTML = "Please wait, submitting your vote. <img src=\"loadinganimation.gif\" alt=\"loading...\" /> (<a href=\"alanhw11.html\">Skip and cancel vote</a>)";
 	});

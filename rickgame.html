@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="script.js"></script>
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+      <div id="instructions">
+ <h1>DESTROY RICK BY</h1>
+      <ul>
+  <li>catching 7 rick astleys</li>
+  <li>do not catch morones</li>
+  <li>you have 10 seconds for this</li>
+      </ul>
+          <button onclick="loadLevel(); document.getElementById('game').style.display = 'block'; document.getElementById('instructions').hidden = 'hidden';">Start!</button>
+      </div>
+      <center id="game" hidden="hidden">
+      <div id="game-root" style="font-size: 55px;"></div>
+      <button onclick="catchR()">CATCH</button>
+      <button onclick="pass()">PASS</button>
+      </center>
+      <center>
+          <span id="right">0</span> right,
+          <span id="wrong">0</span> wrong,
+          <span id="ricksl">7</span> ricks left
+      </center>
+      <div id="image-cache" style="display: none;">
+          <img src="RICK_ROLL.gif" alt="" />
+          <img src="Morone-St-PROFILE-PHOTO.png" alt="" />
+      </div>
+  </body>
+  <script>
+    const totalRicks = 7;
+globalThis.ricksLeft = 7;
+    const timeoutForLevels = 5000;
+    const probabilityOfGettingWrong = 0.6;
+      globalThis.right = 0;
+      globalThis.wrong = 0;
+    function loadLevel() {
+        var rick = Math.random();
+        if (rick < probabilityOfGettingWrong) {
+            globalThis.rick = false;
+            document.getElementById('game-root').innerHTML = '<img src="Morone-St-PROFILE-PHOTO.png" alt="Morone St" />';
+        } else {
+            globalThis.rick = true;
+            document.getElementById('game-root').innerHTML = '<img src="RICK_ROLL.gif" alt="Rickroll" />';
+        }
+        globalThis.t = setTimeout(function() {
+            location.href = '/alanhw133.html';
+        }, timeoutForLevels);
+    }
+      function endgame() {
+          document.getElementById('game').hidden = 'hidden';
+          if (globalThis.right / (globalThis.right + globalThis.wrong) < 0.6) {
+              window.parent.postMessage('faliure', '*');
+          } else {
+              window.parent.postMessage('success', '*');
+          }
+      }
+      function catchR() {
+          clearTimeout(globalThis.t);
+          if (globalThis.rick) {
+              globalThis.right++;
+              document.getElementById('right').textContent = globalThis.right;
+              globalThis.ricksLeft--;
+              document.getElementById('ricksl').textContent = globalThis.ricksLeft;
+          } else {
+              globalThis.wrong++;
+
+              document.getElementById('wrong').textContent = globalThis.wrong;
+              window.parent.postMessage('rick', '*');
+              return location.href = '/alanhw133.html';
+          }
+          if (!globalThis.ricksLeft) {
+              return endgame();
+          }
+          loadLevel();
+      }
+      function pass() {
+          clearTimeout(globalThis.t);
+          if (!globalThis.rick) {
+              globalThis.right++;
+          } else {
+              window.parent.postMessage('rick', '*');
+              return location.href = '/alanhw133.html';
+              globalThis.ricksLeft--;
+              document.getElementById('ricksl').textContent = globalThis.ricksLeft;
+              globalThis.wrong++;
+          }
+          document.getElementById('right').textContent = globalThis.right;
+          document.getElementById('wrong').textContent = globalThis.wrong;
+          if (!globalThis.ricksLeft) {
+              return endgame();
+          }
+          loadLevel();
+      }
+  </script>
