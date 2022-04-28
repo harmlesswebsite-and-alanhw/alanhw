@@ -31,12 +31,14 @@
   <body>
 		<p>EMOTIONAL DAMAGE!?</p>
 		<p>I will send you <label>to <input id="jesus" /></label> and <label>give you <input id="emotional_damage" /></label></p>
+		<p>When I walked to school my other foot was starting <label>a <input id="business" /></label></p>
 		<button onclick="soobmit()">Soobmit</button>
 		<script>
 			function soobmit() {
 				var jesus            = document.querySelector('#jesus').value,
+					business         = document.querySelector('#business').value,
 					emotional_damage = document.querySelector('#emotional_damage').value;
-				if (jesus !== 'jesus' && emotional_damage !== "emotional damage") location.href = '/alanhw133.html';
+				if (jesus !== 'jesus' || emotional_damage !== "emotional damage" || business !== "business") location.href = '/alanhw133.html';
 				else location.href = 'fakeeditor.html';
 			}
 		</script>
