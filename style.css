@@ -9,10 +9,10 @@ body {
 /* Uncomment the two lines below
 ** to disable the link href preview. */
 
-/* @media print { */
+@media print {
     a::after {
         content: "[" attr(href) "]";
         color: gray;
         padding: 3px;
     }
-/* } */
+}
