@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <link href="style.css" rel="stylesheet" type="text/css" />
     <meta name="description" content="Photoshopped Images by Paint" />
 	<script src="script.js"></script>
     <title>Another Morone Quiz</title>
@@ -55,17 +56,17 @@
           <summary>Hint:</summary>
           <img src="dangstorffandleland.png" alt="Dangstorff and leland" />
       </details>
-<img src="Morone-St-PROFILE-PHOTO.png" alt="image" /></p>
+      <img src="bellomyandmorone.png" alt="Snickles" width="506" /></p>
       <label>Where is this?<br />
   <select name="answer" autocomplete="off" onchange="submit()">
       <option disabled="disabled" selected="selected">Choose...</option>
-      <option>San Tomas and Morone</option>
-		  <option value="Lawrence Expy and Morone St">Lawrence Expy and Morone St</option>
+		  <option value="San Tomas and Morone">San Tomas and Morone</option>
+		  <option value="US-20 and Morone St in Burns, OR">US-20 and Morone St in Burns, OR</option>
 		  <option value="Stevens Creek and Morone">Stevens Creek and Morone</option>
 		  <option value="Morone and Chrome Dr.">Morone and Chrome Dr.</option>
 		  <option value="Lawrence St and Morone Way">Lawrence St and Morone Way</option>
-		  <option value="Bellomy and Morone">Bellomy and Morone</option>
-		  <option value="Morone St and Indio Blvd">Morone St and Indio Blvd</option>
+      <option>Bellomy and Morone</option>
+    	<option value="Morone St and Highway 111">Morone St and Highway 111</option>
 		  <option value="Morone St, Morone City">Morone St, Morone City</option>
 		  	  </select>
       </label>
@@ -77,14 +78,14 @@
 			<p>INCORRECT!!!</p><p>YOURE A MORONE. I KNEW IT! you will go to the morone area in З seconds</p>
 </div>
       <div id="win" hidden="hidden"><p>Correct!</p>
-      <p><a href="moronequizЗ.html">Continue</a></p>
+      <p><a href="moronequiz2d.html">Continue</a></p>
       </div>
       <script>
           function submit() {
               var index = document.querySelector('select').selectedIndex;
               document.getElementById('win').hidden = 'hidden';
             document.getElementById('result').hidden = 'hidden';
-              if (index === 1) {
+              if (index === 6) {
                   document.getElementById('win').removeAttribute('hidden');
               } else {
                   document.getElementById('result').removeAttribute('hidden');

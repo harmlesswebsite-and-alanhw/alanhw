@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <link href="style.css" rel="stylesheet" type="text/css" />
     <meta name="description" content="Photoshopped Images by Paint" />
     <title>Photoshopped Images</title>
 	<style>
@@ -23,22 +24,24 @@
 		font-size: 6px;
 	}
 	body {
-		background: url(BSIV.png);
-		background-size: 100%;
+
 	}
 	</style>
   </head>
   <body>
 		<p>EMOTIONAL DAMAGE!?</p>
+    <img src="stevenhe.webp" alt="Snickles" width="303" />
+  <br />
 		<p>I will send you <label>to <input id="jesus" /></label> and <label>give you <input id="emotional_damage" /></label></p>
-		<p>When I walked to school my other foot was starting <label>a <input id="business" /></label></p>
+    <p>When I walked to school my other foot was starting</p>
+		<p>You need to start a business of selling french fries and french toast. what should you say to attract more customers in france? <label>a <input id="bonjour_vive_le_republique" /></label></p>
 		<button onclick="soobmit()">Soobmit</button>
 		<script>
 			function soobmit() {
 				var jesus            = document.querySelector('#jesus').value,
-					business         = document.querySelector('#business').value,
+					bonjour_vive_le_republique         = document.querySelector('#bonjour_vive_le_republique').value,
 					emotional_damage = document.querySelector('#emotional_damage').value;
-				if (jesus !== 'jesus' || emotional_damage !== "emotional damage" || business !== "business") location.href = '/alanhw133.html';
+				if (jesus !== 'jesus' || emotional_damage !== "emotional damage" || bonjour_vive_le_republique !== "bonjour_vive_le_republique") location.href = '/alanhw133.html';
 				else location.href = 'fakeeditor.html';
 			}
 		</script>

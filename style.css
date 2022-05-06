@@ -1,2 +1,18 @@
 /* Common styles. Similar to Special:Mypage/common.css on Wikipedia. */
 .small{font-size:12px;}.white{color:white;}
+input, select, textarea {
+    font-family: inherit;
+}
+body {
+    font-family: sans-serif;
+}
+/* Uncomment the two lines below
+** to disable the link href preview. */
+
+/* @media print { */
+    a::after {
+        content: "[" attr(href) "]";
+        color: gray;
+        padding: 3px;
+    }
+/* } */

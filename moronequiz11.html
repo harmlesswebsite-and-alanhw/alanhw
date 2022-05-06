@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="script.js"></script>
+    <title>Word Association</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+	}
+	body {
+		background: url(cool.png);
+		background-size: 100%;
+	}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+<body>
+    <div id="level1">
+    <h1>Word Association!</h1>
+    <div id="instructions">
+        <p>Match each word. Get all correct and move on, or get one wrong and lose. FYI: all the answers are lowercase</p>
+        <button onclick="document.getElementById('assoc').hidden = ''; document.getElementById('instructions').hidden = 'hidden'; loadWord();">Start!</button>
+    </div>
+    <div id="assoc" hidden="hidden">
+    <p>Type the associate for this word:</p>
+        <form action="javascript:;" onsubmit="submitWord()">
+        <label><span id="key">$KEY</span>: <input id="answer" /></label>
+            <input type="submit" value="SOOBMIT" />
+        </form>
+    </div>
+</div>
+    <script>
+        var words = {
+            "poop": "yummy",
+            "html": "editing",
+            "the brown lumps": "tripoos",
+            "hecker": "has hecked your pc",
+            "monke": "drink pee",
+            "Timmy": "faliure",
+            "Rick": "astley",
+            "Feeway": "280",
+            "I-180": "traffic lights",
+            "MORONE ST": "profile photo",
+            "Parkless": "yellow lights",
+            "Are You A Morone?": "no"
+        };
+        var left = Object.keys(words).length;
+        var pos = 0;
+        function submitWord() {
+            left--;
+            pos++;
+            if (answers[pos - 1].toLowerCase() !== document.getElementById('answer').value) location.href = '/alanhw133.html';
+            else loadWord();
+        }
+        const answers = Object.values(words);
+        const first = Object.keys(words);
+        function loadWord() {
+            var key = first[pos];
+            if (!left) {
+                document.getElementById('level1').hidden = 'hidden'; document.getElementById('level2').hidden = '';}
+            document.getElementById('answer').value = '';
+            document.getElementById('key').textContent = key;
+        }
+    </script>
