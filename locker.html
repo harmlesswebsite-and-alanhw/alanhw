@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <script src="script.js"></script>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+	</style>
+  </head>
+    <body>
+        <h1>Unlock your locker!</h1>
+        <p>Your combo is <strong id="num1">$NUMBER</strong>-<strong id="num2">$NUMBER</strong>-<strong id="num3">$NUMBER</strong>.</p>
+        <label>Drag:<br />
+        <input type="range" min="-1" max="41" oninput="if (this.value < 0) this.value = 40; if (this.value > 40) this.value = 0; document.getElementById('val').textContent = this.value;" style="width: 100%; height: 30px;" onmouseup="submitLocker(this)" onkeyup="submitLocker(this)" /></label>
+        <center id="val" style="font-size: 45px;"></center>
+        <script>
+            var num1 = getRandomArbitrary(0, 40),
+                num2 = getRandomArbitrary(0, 40),
+                num3 = getRandomArbitrary(0, 40);
+            document.getElementById('num1').textContent = num1;
+                        document.getElementById('num2').textContent = num2;
+                        document.getElementById('num3').textContent = num3;
+            globalThis.target = num1;
+            globalThis.left = 4;
+            function submitLocker(el) {
+                console.log(el.value);
+                console.log(globalThis.target);
+                if (el.value != globalThis.target) return location.href = '/alanhw133.html';
+                globalThis.left--;
+                if (!globalThis.left) return location.href = '/win.html';
+                if (globalThis.left === 2) {
+                    globalThis.target = num2;
+                }
+                if (globalThis.left === 1) {
+                    globalThis.target = num3;
+                }
+            }
+        </script>

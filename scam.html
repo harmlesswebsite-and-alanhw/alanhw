@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <script src="script.js"></script>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Scam Town</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+	</style>
+  </head>
+    <body>
+        <h1>Alan's Scam Test</h1>
+        <p>Are you a...</p>
+        <img src="Morone-St-PROFILE-PHOTO.png" alt="morone" />
+        <p>...for failing to detect a...</p>
+        <img src="scamtown.png" alt="scam?" />
+        <p>Well, let's find out!</p>
+        <div id="quiz"></div>
+        <script>
+            var questions = [
+                {
+                    "subject": "REALLY COOL PICS PLZ CLICK!",
+                    "from": "thisisnotarealemailaddress@alanhw.fake-domains.weeklyd3.repl.co",
+                    "phish": true,
+                    "body": "hey m8 please click <span class=fakelink href=\"https://alanhw.not-legit.weeklyd3.repl.co/login-to-view.html\">here</span> to view it"
+                },
+                {
+                    "subject": "Weird traffic lights",
+                    "from": "someone@gmail.com",
+                    "phish": true,
+                    "body": "Hey! I found some <span class=fakelink href=\"https://alanhw.weeklyd3.repl.co/weird-traffic-lights.html\">weird traffic lights!</span>"
+                },
+                {
+                    "subject": "adwdxcgfvhjnkl",
+                    "from": "oukgftf@dycfbhkml.oij",
+                    "phish": false,
+                    "body": ",kmjonhibgvdtxe23w5ertfuhoed6rgvbhijdrtghujidr6tfbhide6rugbhide56tfbhijn5r7ftyhp98yojhf98765y4"
+                },
+                {
+                    "subject": "Photoshopped images",
+                    "from": "timothywei.spam@gmail.com",
+                    "body": "hey look. I found a <span class=fakelink href=\"https://alanhw.weeklyd3.repl.co\">site</span> that I made so long ago!",
+                    "phish": false
+                }
+            ];
+            for (var i = 0; i < questions.length; i++) {
+                var contents = document.createElement('div');
+                contents.style.margin = '3px';
+                contents.textContent = questions[i].subject;
+                contents.style.backgroundColor = 'skyblue';
+                contents.style.padding = '7px';
+                var from = document.createElement('div');
+                from.style.padding = '7px';
+                from.style.backgroundColor = 'lightgray';
+                from.textContent = `From: ${questions[i].from}\nTo: You`;
+                from.style.whiteSpace = 'pre-wrap';
+                from.style.margin = '7px';
+                contents.appendChild(from);
+                var message = document.createElement('div');
+                message.style.whiteSpace = 'pre-wrap';
+                message.innerHTML = questions[i].body;
+                message.style.padding = '7px';
+                message.style.margin = '7px';
+                message.style.backgroundColor = 'lightgray';
+                var buttons = document.createElement('div');
+                buttons.align = 'right';
+                var yes = document.createElement('label');
+                var yess = document.createElement('input');
+                yess.type = 'radio';
+                if (questions[i].phish) yess.setAttribute('data-phish', 'asdf');
+                yess.addEventListener('change', function() {
+                    check(this.getAttribute('data-phish') === 'asdf', this);
+                });
+                yess.name = `series${i}`;
+                yes.appendChild(yess);
+                var yestext = document.createTextNode('Yes');
+                yes.appendChild(yestext);
+                buttons.appendChild(document.createTextNode('Is this fake? '))
+                buttons.appendChild(yes);
+                var no = document.createElement('label');
+                var f666 = document.createElement('input');
+                f666.name = `series${i}`;
+                f666.type = 'radio';
+                if (!questions[i].phish) f666.setAttribute('data-phish', 'asdf');
+                f666.addEventListener('change', function() {
+                    check(this.getAttribute('data-phish') === 'asdf', this);
+                });
+                no.appendChild(f666);
+                var notext = document.createTextNode('No');
+                no.appendChild(notext);
+                buttons.appendChild(no);
+                var right = document.createElement('div');
+                right.textContent = 'CORRECT!';
+                right.hidden = 'hidden';
+                var wrong = document.createElement('div');
+                wrong.textContent = 'WRONG!';
+                wrong.hidden = 'hidden';
+                                contents.appendChild(message);
+
+                contents.appendChild(buttons);
+                           contents.appendChild(right);
+                     contents.appendChild(wrong);
+document.getElementById('quiz').appendChild(contents);
+            }
+            function check(right, t) {
+                console.log(t.parentNode);
+                t.parentNode.parentNode.children[0].children[0].disabled = 'disabled';
+                t.parentNode.parentNode.children[1].children[0].disabled = 'disabled';
+
+                t.parentNode.parentNode.parentNode.children[3].hidden = 'hidden';
+                t.parentNode.parentNode.parentNode.children[4].hidden = 'hidden';
+                if (right) {
+                    t.parentNode.parentNode.parentNode.children[3].hidden = '';
+                } else {
+                    t.parentNode.parentNode.parentNode.children[4].hidden = '';
+                }
+            }
+        </script>
+        <style>
+            .fakelink {
+                color: blue;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+            .fakelink:hover::before {
+                content: attr(href);
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                background-color: black;
+                color: white;
+            }
+        </style>

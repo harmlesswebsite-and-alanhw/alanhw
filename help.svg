@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="search.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.3273709"
+     inkscape:cx="-30.511441"
+     inkscape:cy="52.35914"
+     inkscape:window-width="1920"
+     inkscape:window-height="995"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="11.706647"
+       y="47.421042"
+       width="104.79479"
+       height="86.443197"
+       id="rect10832" />
+    <rect
+       x="-0.091228267"
+       y="-0.87991135"
+       width="188.12446"
+       height="189.99317"
+       id="rect9332" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(50.705834,-26.513853)">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-50.705834,26.513853)"
+       id="text9330"
+       style="font-size:200px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;white-space:pre;shape-inside:url(#rect9332)"><tspan
+         x="-0.091796875"
+         y="366.06641"
+         id="tspan12401"><tspan
+           style="font-size:1.33333px"
+           id="tspan12399">?</tspan></tspan></text>
+    <g
+       aria-label="?"
+       transform="matrix(1.667911,0,0,1.667911,-62.697048,-61.664702)"
+       id="text10830"
+       style="font-size:40px;line-height:1.25;-inkscape-font-specification:sans-serif;white-space:pre;shape-inside:url(#rect10832)">
+      <path
+         d="m 19.34375,77.851562 h 3.964844 V 82.8125 H 19.34375 Z m 3.847656,-2.871093 h -3.730469 v -3.007813 q 0,-1.972656 0.546875,-3.242187 0.546875,-1.269532 2.304688,-2.949219 l 1.757812,-1.738281 q 1.113282,-1.035157 1.601563,-1.953125 0.507812,-0.917969 0.507812,-1.875 0,-1.738282 -1.289062,-2.8125 -1.269531,-1.074219 -3.378906,-1.074219 -1.542969,0 -3.300782,0.683594 -1.738281,0.683593 -3.632812,1.992187 v -3.671875 q 1.835937,-1.113281 3.710937,-1.660156 1.894532,-0.546875 3.90625,-0.546875 3.59375,0 5.761719,1.894531 2.1875,1.894531 2.1875,5 0,1.484375 -0.703125,2.832031 -0.703125,1.328125 -2.460937,3.007813 l -1.71875,1.679687 q -0.917969,0.917969 -1.308594,1.445313 -0.371094,0.507812 -0.527344,0.996094 -0.117187,0.410156 -0.175781,0.996093 -0.05859,0.585938 -0.05859,1.601563 z"
+         id="path12368" />
+    </g>
+  </g>
+</svg>

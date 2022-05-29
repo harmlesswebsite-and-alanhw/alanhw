@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Low quiz scores</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+	<style>
+		.small {
+			font-size: 12px;
+		}
+		.white{color:white;}</style>
+  </head>
+  <body>
+      <h1>Low quiz scores</h1>
+      <p>Discouraged of your low quiz scores? Input your percentage to see even lower scores!</p>
+      <p>Examples: <a href="3outof10.png">3/10</a>, <a href="-10outof5.jpeg">-10/5</a></p>
+      <table>
+          <tr style="background-color: lime;">
+              <th colspan="2">Low quiz scores</th>
+          </tr>
+          <tr>
+              <th colspan="2"><label>Your quiz score in percent: <input type="number" id="lowquiz" oninput="search(this.value)" /></label></th>
+          </tr>
+          <tr>
+              <th>Quiz subject</th>
+              <th>Score</th>
+          </tr>
+          <tbody id="scores"><tr><td colspan="2">Search!</td></tr></tbody>
+      </table>
+      <script>
+          var quizzes = [
+              {
+                  "subject": "Chentmistry",
+                  "grade": 3/10
+              },
+              {
+                  "subject": "Chentmistry",
+                  "grade": 0/10
+              },
+              {
+                  "subject": "History",
+                  "grade": 6/8
+              },
+              {
+                  "subject": "Psychics Participation",
+                  "grade": -1/5
+              },
+              {
+                  "subject": "Psychics Participation",
+                  "grade": -10/5
+              }
+          ];
+          function search(value) {
+              document.getElementById('scores').innerHTML = '';
+              for (var i = 0; i < quizzes.length; i++) {
+                  if ((quizzes[i].grade < (parseInt(value) / 100)) || (parseInt(value) !== parseInt(value))) {
+                      var r = document.createElement('tr');
+                      var s = document.createElement('td');
+                      s.textContent = quizzes[i].subject;
+                      r.appendChild(s);
+                      var g = document.createElement('td');
+                      g.textContent = `${quizzes[i].grade * 100}%`;
+                      r.appendChild(g);
+                      document.getElementById('scores').appendChild(r);
+                  }
+              }
+          }
+      </script>

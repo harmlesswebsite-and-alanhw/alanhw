@@ -30,7 +30,7 @@
 	</style>
   </head>
   <body>
-      <p id="status">DO NOT PRESS THE RED BUTTON.</p>
+      <p id="status">DO NOT PRESS <a href="butt.html">THE RED BUTT</a>ON</p>
       <script>
           function shutdown() {
               setTimeout(function() {
@@ -41,3 +41,4 @@
       </script>
       <a onclick="shutdown()" href="javascript:;" onmousedown="this.children[0].src='Redbuttonclicked.svg';" onmouseup="this.children[0].src='Redbutton.svg';"><img src="Redbutton.svg" alt="Red button" height="100" onmousedown="this.src='Redbuttonclicked.svg';" onmouseup="this.src='Redbutton.svg';" /></a>
       <img height="0" src="Redbuttonclicked.svg" alt="" />
+      

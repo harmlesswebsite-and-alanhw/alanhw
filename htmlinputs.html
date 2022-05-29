@@ -1,0 +1,171 @@
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/vs.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="/style.css" />
+<h1>
+Text boxes and other form fields in HTML
+</h1>
+<p>
+Alan asked me how to make text boxes and other fields in HTML. Well, text boxes in particular. So here we go, a table of inputs in HTML.
+</p>
+<table style="max-width: 100%;">
+<tr>
+	<th>What you write</th>
+	<th>Explanation</th>
+	<th>Peeview</th>
+</tr>
+<tr>
+	<td><pre class="html"><code>&lt;label>
+  Your name:
+  &lt;input type="text" />
+&lt;/label></code></pre></td>
+	<td>Simple single-line text box inside a label.</td>
+	<td>
+		<label>
+			Your name:
+			<input type="text" />
+		</label>
+	</td>
+</tr>
+<tr>
+<td>
+	<pre class="html"><code class="html">&lt;label>
+  Enter your password to log in:
+  &lt;input type="password" />
+&lt;/label></code></pre>
+</td>
+<td>
+	Simple password field. Offers no additional security besides obscuring text in box, disabling copying, and alerting user if site is unsafe. <note>An unsafe site is defined as one where the connection is insecure and not on <code>locahost</code> or <code>127.0.0.1</code></note><note>When used together with input type text, browsers may save the username as the value of the input type text and the password as the input type password, and fill them in when the site is re-visited.</note>
+</td>
+<td>
+	<label>Enter your password to log in: <input type="password" /></label>
+</td>
+</tr>
+<tr>
+	<td><pre class="html"><code>&lt;label>
+  &lt;input type="submit" value="Submit form" />
+&lt;/label></code></pre></td>
+<td>A button for submitting the form. The value attribute dictates the text on the submit button.<note>When this value is omitted, browsers use a default value. For example, Chrome uses "Submit", and Firefox uses "Submit Query."</note></td>
+<td><label>Submit form:
+<input type="submit" /></label><br />Hint: It's only a preview<note>
+No, it won't submit anything because it is not in a <code>&lt;form></code> tag</note></td>
+</tr>
+<tr>
+	<td>
+		<pre class="html"><code class="html">&lt;label>
+  Choose a date to rick roll someone:
+  &lt;input type="date" />
+&lt;/label></code></pre>
+	</td>
+	<td>
+		One of the more cool ones. Allows date selection. Unfortunately, the widget that pops up cannot be styled much. <note>This is because the widget is implemented by the browser. For more customizable date inputs, you should use a JavaScript polyfill.</note>
+	</td>
+	<td>
+		<label>Choose a date to rick roll someone:
+		<input type="date" /></label><br />
+		Note: Click there --> <note>What you see may be different across browsers. Read the previous note again.</note>
+	</td>
+</tr>
+<tr>
+	<td><pre class="html"><code class="html">&lt;label>
+  Write your essay here:
+  &lt;textarea rows="5" cols="50">&lt;/textarea>
+&lt;/label></code></pre></td>
+<td> 
+Plain-text multi-line input box.<note>For rich text editing, try using a contenteditable div or use a JavaScript library.</note> Rows and cols attribute dictate number of rows and columns, respectively.
+</td>
+<td>
+	<label>Write your essay here: <textarea rows="5" cols="50"></textarea></label>
+</td>
+</tr>
+<tr>
+	<td><pre class="html"><code class="html">&lt;div contenteditable="true">&lt;/div></code></pre></td>
+	<td>This technically isn't an input box, but it's worth mentioning. This creates a rich-text editor which can be manipulated with JavaScript.<note>Just for the fun of it: <code>document.execCommand('bold')</code> bolds selected text, <code>document.execCommand('italic')</code> and <code>document.execCommand('underline')</code> do similar things, <code>document.execCommand('undo')</code> and <code>document.execCommand('redo')</code> undo and redo, and so on. A list of all commands is available <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand#parameters">here on MDN</a>.</note></td>
+	<td>Click below to edit: <div contenteditable="true">Hey, you can edit this text!
+	</div><note>(This might not work in the PDF version.)</note></td>
+</tr>
+</table>
+<h2>
+How we created the note system
+</h2>
+<p>
+Easy. A little bit of JavaScript will do it. First, add this: </p>
+<pre class="html"><code class="html">&lt;ol id="notes">&lt;/ol></code></pre>
+<p>
+Then execute this JavaScript after the page loads:
+</p>
+<pre class="javascript"><code class="javascript">var notez = document.querySelectorAll('note');
+for (var i = 0; i &lt; notez.length; i++) {
+	notez[i].id = `note${i}`;
+	var text = notez[i].innerHTML;
+	var note = document.createElement('li');
+	note.id = `notetext${i}`; 
+	note.classList.add('note');
+	var returnlink = document.createElement('a');
+	returnlink.href = `#note${i}`;
+	returnlink.textContent = '(back)';
+	note.appendChild(returnlink);
+	var n = document.createElement('span');
+	n.innerHTML = " " + text;
+	note.appendChild(n);
+	document.getElementById('notes').appendChild(note);
+	notez[i].innerHTML = '';
+	var notelink = document.createElement('a');
+	notelink.textContent = `[${i + 1}]`; 
+	var s = document.createElement('sup');
+	notelink.href = `#notetext${i}`;
+	notelink.classList.add('notelink');
+	s.appendChild(notelink);
+	notez[i].appendChild(s);
+}</code></pre>
+<p>
+That's it. Any text within <code>&lt;note>&lt;/note></code> tags will be converted into footnotes.
+</p>
+<p>
+Like this:
+<note>Fake note 1</note>
+<note>Another fake note</note>
+<note>Notes can contain <a href="https://alanhw.weeklyd3.repl.co/alanhw133.html">HTML</a></note>
+<note>Hey, we have some <a href="https://alanhw.weeklyd3.repl.co/schoology.html">homework!</a></note>
+</p>
+<script>
+hljs.highlightAll();
+</script>
+<style>
+tr:nth-child(1) {
+	background-color: skyblue;
+	color: black;
+	border: 1px solid;
+}
+tr td {
+	border: 1px solid;
+}
+pre {
+	border: 1px solid;
+	background-color: #eeeeee;
+}
+pre::before {
+	padding: 3px;
+	padding-right: 0px;
+	content: "Code (" attr(class) "):";
+	float: left;
+}
+code {
+	background-color: #eeeeee;
+	border-radius: 3px;
+}
+.note:target, note:target sup a {
+	animation-fill-mode: forwards;
+	animation-name: fadegold;
+	animation-duration: 3s;
+}
+
+@keyframes fadegold {
+	0% {
+		background-color: gold;
+	}
+	100% {
+		background-color: unset;
+	}
+}</style>

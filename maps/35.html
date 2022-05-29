@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <link href="../style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="../script.js"></script>
+    <title>35 is East West in the Toilet</title>
+	<style>
+	img {
+		max-width:100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width:50%;
+	}
+	.big {
+		font-size:20px;
+	}
+	iframe {
+		border:none;
+		overflow:hidden !important;
+	}
+	.progress {
+		background-color:gray;
+	}
+	.bar {
+		background-color:lime;
+		display:inline-block;
+	}
+	.newsfeeditem {
+		padding:3px;
+		margin:3px;
+		border:2px solid;
+		background:rgb(135,206,235);
+		background:-moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background:-webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background:linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1);
+	}
+	.newsfeedcontents {
+		white-space:pre-line;
+		border:1px solid;
+	}
+	.newsfeed-owner {
+		font-style:italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap:break-word;
+
+	}
+	summary {
+		list-style:none;
+	}
+	.width100 {
+		width:100%;
+		height:100vh;
+	}
+				.fakenotlink {
+			color:inherit;
+			text-decoration:none;
+			pointer:default;
+		}
+		label {
+			padding:2px;
+			border:1px solid;
+		}
+		.white  {
+			color:white;
+		}
+		.allwidth {
+			width:95%;
+		}
+		.locked {
+			background-color:#111111;
+			color:black;
+		}
+		.locked::before {
+			z-index:999;
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:
+			content:"\00a0\00a0";
+			width:100%;
+			background-color:green;
+		}
+		.farapart {
+			list-style:none;
+			margin:none;
+		}
+		.farapart > li {
+			margin-top:1500px;
+		}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body style="background-color:rgba(135, 206, 235, 0.3);">
+      <p>This is an attempt at creating a text version of this image.</p>
+      <p>The original image is here:<br /><img src="../35.png" alt="Original 35 image" /></p>
+<div style="margin-left:-100px; transform:perspective(1500px) rotateY(-45deg);top:300;left:300;font-size:20px;display:flex;color:white;"><div style="margin:25px;margin-left:5px;"><div style="float:right;display:inline-block;"><span style="border:2px solid white;background-color:#32b885;">Exit 53</span></div><div style="border:2px solid white;background-color:#32b885;clear:both; text-align: center;">Peemond St<br/>Poomond St<br/>Feces St<br /><span style="font-variant: small-caps;">1 Mile</span></div></div><div style="margin:25px;"><div style="float:right;display:inline-block;"><span style="border:2px solid white;background-color:#955743;">Exit 53</span></div><div style="border:2px solid white;background-color:#955743;clear:both;border-bottom:1px solid;">Convention Center Drink<br/>River <span style="display:inline-block;transform:rotate(180deg);">M</span> Poo and Pee</div><div style="border-top:1px solid;border:2px solid white;clear:both;background-color:#32b885;">Sinclair College</div></div><div style="margin:25px;"></div><div style="margin:25px;margin-left:5px;"><div style="border:2px solid white;background-color:#32b885;clear:both;"><span style="float:left;font-variant:small-caps; padding: 3px;">West</span> <span style="padding: 3px;float:right;font-variant:small-caps;">South</span><div style="clear:both;"></div><span style="float:left;padding:7px;background-color:lightgray;color:black;margin:7px;">35</span> <span style="float:right;padding:7px;background-color:lightgray;color:black;margin:7px;">54</span> <div style="clear:both;"></div><div style="text-align:center;">Eat Poo</div><div style="clear:both;"></div></div><div style="clear:both;"></div></div><div style="margin:25px;margin-left:5px;"><div style="border:2px solid white;background-color:#32b885;clear:both;"><div style="font-variant:small-caps;text-align: center;">East</div><div style="clear:both;"></div><span style="float:left;padding:7px;background-color:lightgray;color:black;margin:7px;display:inline-block;text-align: center;">35</span> <div style="clear:both;"></div><div style="text-align:center;">Xenia</div><div style="clear:both;"></div></div></div></div>
+<p>There. That was the image.</p>
+<h2>Why use images like this? Well, c'mon, look at the messy code.</h2>
+<p>At least you get something neat when you paste it into <code>gedit</code> or any other plain-text editor:</p>
+<pre>Exit 53
+Peemond St
+Poomond St
+Feces St
+1 Mile
+Exit 53
+Convention Center Drink
+River M Poo and Pee
+Sinclair College
+West South
+35 54
+Eat Poo
+East
+35
+Xenia</pre>
+<h2>Great. How do I create these?</h2>
+<p>Simple. Just use a flexbox with a <code>transform: perspective(1000px) rotateY(-45deg)</code> and a lot of floats and clears.</p>

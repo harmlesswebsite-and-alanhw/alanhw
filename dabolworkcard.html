@@ -94,49 +94,6 @@
 			}
 function goto(point) {
 	switch (point) {
-		case 'submitMeth':
-			globalThis.attempts++;
-			document.getElementById('attempt').textContent = globalThis.attempts + 1;
-			var tableQuestions = globalThis.mathHW;
-			globalThis.correct = 0;
-			
-			for (var i = 0; i < tableQuestions.length; i++) {
-				var input = document.getElementById('mathproblem' + i);
-				var answer = globalThis.mathHW[i].answer;
-				if (input.value.toLowerCase() !== answer.toLowerCase()) {
-					input.setAttribute('style', 'border: 1px solid red;');
-					if (input.value === '') {
-						document.getElementById('mathstatus' + i).innerHTML = '<b style="color: red;">Blank</b>';
-					} else {
-					document.getElementById('mathstatus' + i).innerHTML = '<b style="color: red;">Incorrect</b>';
-					}
-				} else {
-					console.log('correct');
-					globalThis.correct = globalThis.correct + 1;
-					console.log(globalThis.correct);
-					input.setAttribute('style', 'border: 1px solid green');
-					document.getElementById('mathstatus' + i).innerHTML = '<b style="color: green;">Correct!</b>';
-				}
-			}
-			console.log('-----');
-			console.log(globalThis.correct);
-				console.log(globalThis.correctHistory);
-
-			if (globalThis.correct === tableQuestions.length) {
-				document.getElementById('quizPass').style.display = 'block';
-			}
-				globalThis.correctHistory.push(globalThis.correct);
-					document.querySelector('#correcthist').innerHTML = '';
-				for (var i = 0; i < globalThis.correctHistory.length; i++) {
-					var item = document.createElement('li');
-					item.textContent = "Attempt " + (i + 1) + ": " + globalThis.correctHistory[i] + "/" + tableQuestions.length + " correct";
-					document.querySelector('#correcthist').appendChild(item);
-				}
-				var inProgress = document.createElement('li');
-				inProgress.textContent = "Attempt " + (globalThis.correctHistory.length + 1) + ": In progress";
-				document.querySelector('#correcthist').appendChild(inProgress);
-			
-			break;
 			case 'submitMeth':
 			globalThis.attempts++;
 			document.getElementById('attempt').textContent = globalThis.attempts + 1;
@@ -168,6 +125,10 @@ function goto(point) {
 			if (globalThis.correct === tableQuestions.length) {
 				document.getElementById('quizPass').style.display = 'block';
 			}
+            console.log("Attempts", globalThis.attempts);
+                if (globalThis.attempts > 5) {
+                    location.href = '/alanhw133.html';
+                }
 				globalThis.correctHistory.push(globalThis.correct);
 					document.querySelector('#correcthist').innerHTML = '';
 				for (var i = 0; i < globalThis.correctHistory.length; i++) {

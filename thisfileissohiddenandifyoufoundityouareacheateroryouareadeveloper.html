@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div hidden="hidden"><span id="saving"></span></div>
+    <title id="taitl">Secret terminal</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+</head>
+<body id="baudy">
+</body>
+<script src="https://harmlesswebsite.leoshi6.repl.co/script.js"></script>
+<script src="https://harmlesswebsite.leoshi6.repl.co/loadsave.js"></script>
+<script>
+$('body').terminal({
+    sorry: function() {
+        this.echo('Sorry!');
+        setTimeout(function() { goto(0) }, 3000);
+    },
+    calc: function(numbers) {
+        this.echo(`Accessing calculator application to evaluate ${numbers}`);
+        setTimeout(function(t) {
+            t.echo('Sorry, we could not load the application.')
+        }, 2000, this);
+    }
+}, {
+    greetings: "Hey, you found this!\nStarting up secret system...\n[  OK!  ] POST complete\n[FALIURE] RAM could not be loaded"
+});
+</script>
+    <style>
+        .good {
+            color: green;
+        }
+        .bad {
+            color: red;
+        }
+    </style>
+</html>

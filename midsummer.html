@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>A Midsummer Night's Dream</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	.big {
+		font-size: 20px;
+	}
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.progress {
+		background-color: gray;
+	}
+	.bar {
+		background-color: lime;
+		display: inline-block;
+	}
+	.newsfeeditem {
+		padding: 3px;
+		margin: 3px;
+		border: 2px solid;
+		background: rgb(135,206,235);
+		background: -moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: -webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background: linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1); 
+	}
+	.newsfeedcontents {
+		white-space: pre-line;
+		border: 1px solid;
+	}
+	.newsfeed-owner {
+		font-style: italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap: break-word;
+
+	}
+	summary {
+		list-style: none;
+	}
+	.width100 {
+		width: 100%;
+		height: 100vh;
+	}
+				.fakenotlink {
+			color: inherit;
+			text-decoration: none;
+			pointer: default;
+		}
+		label {
+			padding: 2px;
+			border: 1px solid;
+		}
+		.white  {
+			color: white;
+		}
+		.allwidth {
+			width: 95%;
+		}
+		.locked {
+			background-color: #111111;
+			color: black;
+		}
+		.locked::before {
+			z-index: 999;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 
+			content: "\00a0\00a0";
+			width: 100%;
+			background-color: green;
+		}
+		.farapart {
+			list-style: none;
+		}
+		.farapart > li {
+			margin-top: 1500px;
+		}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body>
+      <!-- content with class="no-when-print" will not appear when printing -->
+      <div class="no-when-print">
+          This content is loaded from the Harmlesswebsite CDN: <a href="https://hw-cdn.weeklyd3.repl.co/index.php?filename=bsiv-amnd">here</a>.<br />
+          <label>Font: <input oninput="document.body.style.fontFamily = this.value;" value="Arial, sans-serif" /></label>
+          <label>Font size (px): <input oninput="document.body.style.fontSize = this.value + 'px';" value="20" /></label>
+          <input type="button" onclick="window.print()" value="Print" />
+      </div>
+      <style>
+          #script {
+              width: 100%;
+          }
+          #script tr td {
+              padding: 7px;
+          }
+          #script tr td:nth-child(1):not(.direction) {
+              width: 0px;
+          }
+          .direction {
+              font-weight: 700;
+              font-style: italic;
+          }
+          .direction::before {
+              content: "(";
+          }
+          .direction::after {
+              content: ")";
+          }
+        
+      </style>
+      <table id="script" style="width: 100%;"></table>
+      <p id="loading">This may take a while to load...</p>
+      <p id="error" style="display: none;">An error occurred. Reload to try again.</p>
+      <script>
+          var xhr = new XMLHttpRequest();
+          xhr.addEventListener('error', function() {
+              document.getElementById('loading').hidden = 'hidden';
+              document.getElementById('error').hidden = '';
+          });
+          xhr.addEventListener('load', function() {
+              document.getElementById('loading').hidden = 'hidden';
+              console.log('Loaded!');
+              var j = JSON.parse(this.responseText);
+              console.log(j);
+              for (var i = 0; i < j.length; i++) {
+                  var r = document.createElement('tr');
+                  if (!j[i].person) {
+                      var d = document.createElement('td');
+                      d.classList.add('direction');
+                      d.colSpan = 2;
+                      d.textContent = j[i].line;
+                      r.appendChild(d);
+                      document.getElementById('script').appendChild(r);
+                      continue;
+                  }
+                  var c = document.createElement('td');
+                  c.setAttribute('valign', 'top');
+                  c.textContent = j[i].person;
+                  var l = document.createElement('td');
+                  l.id = `line${i}`;
+                  l.style.whiteSpace = 'pre-wrap';
+                  l.textContent = j[i].line;
+                  r.appendChild(c);
+                  r.appendChild(l);
+                  document.getElementById('script').appendChild(r);
+              }
+              if (document.getElementById(location.hash.slice(1))) document.getElementById(location.hash.slice(1)).scrollIntoView();
+          });
+          xhr.open('GET', 'https://hw-cdn.weeklyd3.repl.co/index.php?action=download&filename=bsiv-amnd');
+          xhr.send();
+          console.log('Request sent');
+      </script>
+      <style>
+          :target {
+              background-color: gold;
+          }
+      </style>
+  </body></html>

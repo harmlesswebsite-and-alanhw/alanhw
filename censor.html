@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <script src="script.js"></script>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+	</style>
+      <script>
+          function surroundSelection(element) {
+    if (window.getSelection) {
+        var sel = window.getSelection();
+        if (sel.rangeCount) {
+            var range = sel.getRangeAt(0).cloneRange();
+            range.surroundContents(element);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+    }
+}
+
+
+      </script>
+  </head>
+    <body>
+        <div id="censor"  onmouseup="var el = document.createElement('span'); el.classList.add('censor'); surroundSelection(el);">
+        <h1>Censor this</h1>
+            <p><strong>Mickeysoft Windblows XP</strong> is a pretty detestable<note>Did you read 'detestable'? of course you did...</note> operating system.</p>
+            <p>You can drag and drop! Oh!<note>Stay on topic please</note></p>
+            <p>Seriously. Use GNU/Linux instead.<note>Or GNU on the Turd kernel, but that isn't stable yet.</note> You could even try getting the Turd kernel and making it so it is as nice as Linux<note>...but without all the blobs and useful firmware</note></p>
+            <p>It also has many errors.<note><span style="color: red;">An error occurred while displaying this note.</span></note></p>
+            <p><button onclick="setTimeout(function(){location.href = '/alanhw133.html'; }, 5000); error();setInterval(error, 50);">Error!</button></p>
+            <p>Anyways, you should be able to trigger errors by clicking the button above. You will get the errors like a native XP experience!<note>XP stood for Windows eXPerience, but meh, nobody cares. What an experience with so many errors!</note></p>
+            <p>You can try censoring this text! Let's add a huge passage from <cite>A Midsummer Night's Dream</cite>:</p>
+            <pre>How happy some o'er other some can be!
+Through Athens I am thought as fair as she.
+But what of that? Demetrius thinks not so;
+He will not know what all but he do know:
+And as he errs, doting on Hermia's eyes,
+So I, admiring of his qualities:
+Things base and vile, folding no quantity,
+Love can transpose to form and dignity:
+Love looks not with the eyes, but with the mind;
+And therefore is wing'd Cupid painted blind:
+Nor hath Love's mind of any judgement taste;
+Wings and no eyes figure unheedy haste:
+And therefore is Love said to be a child,
+Because in choice he is so oft beguiled.
+As waggish boys in game themselves forswear,
+So the boy Love is perjured every where:
+For ere Demetrius look'd on Hermia's eyne,
+He hail'd down oaths that he was only mine;
+And when this hail some heat from Hermia felt,
+So he dissolved, and showers of oaths did melt.
+I will go tell him of fair Hermia's flight:
+Then to the wood will he to-morrow night
+Pursue her; and for this intelligence
+If I have thanks, it is a dear expense:
+But herein mean I to enrich my pain,
+To have his sight thither and back again.</pre>
+            <p>Nope, this one from <cite>Hamlet</cite> is even longer!</p>
+            <pre>To be, or not to be: that is the question:
+Whether 'tis nobler in the mind to suffer
+The slings and arrows of outrageous fortune,
+Or to take arms against a sea of troubles,
+And by opposing end them? To die: to sleep;
+No more; and by a sleep to say we end
+The heart-ache and the thousand natural shocks
+That flesh is heir to, 'tis a consummation
+Devoutly to be wish'd. To die, to sleep;
+To sleep: perchance to dream: ay, there's the rub;
+For in that sleep of death what dreams may come
+When we have shuffled off this mortal coil,
+Must give us pause: there's the respect
+That makes calamity of so long life;
+For who would bear the whips and scorns of time,
+The oppressor's wrong, the proud man's contumely,
+The pangs of despised love, the law's delay,
+The insolence of office and the spurns
+That patient merit of the unworthy takes,
+When he himself might his quietus make
+With a bare bodkin? who would fardels bear,
+To grunt and sweat under a weary life,
+But that the dread of something after death,
+The undiscover'd country from whose bourn
+No traveller returns, puzzles the will
+And makes us rather bear those ills we have
+Than fly to others that we know not of?
+Thus conscience does make cowards of us all;
+And thus the native hue of resolution
+Is sicklied o'er with the pale cast of thought,
+And enterprises of great pith and moment
+With this regard their currents turn awry,
+And lose the name of action.-Soft you now!
+The fair Ophelia! Nymph, in thy orisons
+Be all my sins remember'd.
+</pre>
+            <p>Remember that! Because, remember that thetestisreallyhard.<note>Did you read "The test is really hard" or "The testis really hard"? Ya of course you read "The test is really hard..."</note></p>
+        </div>
+        <div id="testcensor" hidden="hidden"></div>
+        <div hidden="hidden">
+            <div id="errorbox" style="position: fixed; top: 0; left; 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.05);">
+                <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100px; background-color: white;" id="error">
+                    <div style="background-color: blue; color: white;"><span>ERROR </span><span id="errornum">$NUM</span></div>
+                    Operation completed successfully. There must be something wrong.
+                    <center>
+                        <button onclick="this.parentNode.parentNode.parentNode.hidden = 'hidden';">OK, I guess...</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <script>
+            function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}globalThis.errors = 0;
+
+            function error() {
+                globalThis.errors++;
+                var e = document.getElementById('errorbox').cloneNode(true);
+                e.children[0].children[0].children[1].textContent = globalThis.errors;
+                e.id = '';
+                var h = getRandomArbitrary(0, window.screen.height);
+                e.children[0].style.top = h + "px";
+                var w = getRandomArbitrary(0, window.screen.width);
+                e.children[0].style.left = w + "px";
+                document.body.appendChild(e);
+            }
+        </script>

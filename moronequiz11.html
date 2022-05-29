@@ -62,7 +62,7 @@
     <div id="assoc" hidden="hidden">
     <p>Type the associate for this word:</p>
         <form action="javascript:;" onsubmit="submitWord()">
-        <label><span id="key">$KEY</span>: <input id="answer" /></label>
+        <label><span id="key" style="font-size: 40px;">$KEY</span>:<br /> <input id="answer" /></label>
             <input type="submit" value="SOOBMIT" />
         </form>
     </div>
@@ -95,8 +95,9 @@
         function loadWord() {
             var key = first[pos];
             if (!left) {
-                document.getElementById('level1').hidden = 'hidden'; document.getElementById('level2').hidden = '';}
+                document.getElementById('level1').hidden = 'hidden'; location.href = '/stevenhe.html';}
             document.getElementById('answer').value = '';
             document.getElementById('key').textContent = key;
         }
     </script>
+<a href='moronequiz8.html'>We are having technical difficulties continue here</a>

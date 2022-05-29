@@ -1,0 +1,75 @@
+<!-- Template code for new web pages -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <script src="script.js"></script>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+        .fade-10-sec {
+            animation-fill-mode: forwards;
+            animation-name: fadeout;
+            animation-duration: 0.5s;
+            animation-delay: 9.5s;
+        }
+        .fade-20-sec {
+            opacity: 0;
+            animation-fill-mode: forwards;
+            animation: fadein 0.5s forwards 10s, fadeout 0.5s forwards 19.5s
+        }
+        .fadein-30-sec {
+            opacity: 0;
+            animation: fadein 0.5s forwards 20s, fadeout 0.5s forwards 29.5s
+        }
+        .fadein-40-sec {
+            opacity: 0;
+            animation: fadein 0.5s forwards 30s;
+        }
+	</style>
+  </head>
+    <body>
+        Here is how <a href="midsummer.html">the play</a> ended: <button onclick="go()">Launch animation</button>
+        <script>
+            function go() {
+        document.body.innerHTML = `<div class="fade-10-sec">
+            <div><strong>Oberon</strong></div>
+            <div style="white-space: pre-wrap;">Now until the break of day,
+Through this house each fairy stray.
+Trip away, make not stay.
+Meet me all by break of day.</div>
+        </div>
+        <div class="fade-20-sec fadeout-20-sec"><div><strong>Puck</strong></div>
+            <div style="white-space: pre-wrap;">If we shadows have offended,
+Think but this, and all is mended.
+While you have but slumbered here.
+While these visions did appear.
+And this weak and idling theme
+No more yielding but a dream.</div></div>
+<div class="fadein-30-sec">
+    <div>CURTAIN CALL!</div>
+</div>
+<div class="fadein-40-sec">
+    <div>WHAAAAAAAAAAAAAAAAAAAAAAT? A RICKROLL?</div>
+</div>`;
+                new Audio('https://harmlesswebsite.leoshi6.repl.co/rickroll_with_30second_silence.mp3').play();
+            }
+</script>

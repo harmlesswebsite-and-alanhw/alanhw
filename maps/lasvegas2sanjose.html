@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <link href="../style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+	<script src="../script.js"></script>
+    <title>Las Vegas to San Jose</title>
+	<style>
+        #mapcontainer::-webkit-scrollbar {
+  display: none;
+}
+
+#mapcontainer {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+	img {
+		max-width:100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width:50%;
+	}
+	.big {
+		font-size:20px;
+	}
+	iframe {
+		border:none;
+		overflow:hidden !important;
+	}
+	.progress {
+		background-color:gray;
+	}
+	.bar {
+		background-color:lime;
+		display:inline-block;
+	}
+	.newsfeeditem {
+		padding:3px;
+		margin:3px;
+		border:2px solid;
+		background:rgb(135,206,235);
+		background:-moz-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background:-webkit-linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		background:linear-gradient(0deg, rgba(135,206,235,1) 0%, rgba(176,196,222,1) 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#87ceeb",endColorstr="#b0c4de",GradientType=1);
+	}
+	.newsfeedcontents {
+		white-space:pre-line;
+		border:1px solid;
+	}
+	.newsfeed-owner {
+		font-style:italic;
+	}
+	.newsfeeditem h2 {
+		overflow-wrap:break-word;
+
+	}
+	summary {
+		list-style:none;
+	}
+	.width100 {
+		width:100%;
+		height:100vh;
+	}
+				.fakenotlink {
+			color:inherit;
+			text-decoration:none;
+			pointer:default;
+		}
+		label {
+			padding:2px;
+			border:1px solid;
+		}
+		.white  {
+			color:white;
+		}
+		.allwidth {
+			width:95%;
+		}
+		.locked {
+			background-color:#111111;
+			color:black;
+		}
+		.locked::before {
+			z-index:999;
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:
+			content:"\00a0\00a0";
+			width:100%;
+			background-color:green;
+		}
+		.farapart {
+			list-style:none;
+			margin:none;
+		}
+		.farapart > li {
+			margin-top:1500px;
+		}
+	</style>
+	<meta name="introduction" content="no-reference" />
+  </head>
+  <body style="padding: 0px; margin: 0px;">
+      <div id="mapcontainer" style="width: 100vw; height: 100vh; overflow: scroll;">
+      <img src="../lasvegas2sanjose.svg" alt="Map" style="max-width: unset;" onload="this.width = parseInt(getComputedStyle(this).width.slice(0, -2)) * 2;" />
+      </div>
+      <p style="bottom: 0;position: fixed; right: 0; font-size: 12px; background-color: lightgray; color: black; display: inline-block;"><button onclick="setZoom(globalThis.zoom / 1.02)">-</button> <span id="zoom" tabindex="0" onclick="this.hidden = 'hidden'; document.getElementById('zoominput').hidden = ''; document.getElementById('zoombox').focus();">100%</span>
+          <label id="zoominput" hidden="hidden" style="border: none;">
+              <span style="position: fixed; top: -8888px;">Zoom:</span>
+              <input value="100" onchange="if(this.value > 1)setZoom(this.value / 100); else setZoom(0.01);" onblur="document.getElementById('zoominput').hidden = 'hidden'; document.getElementById('zoom').hidden = '';" id="zoombox" type="number" size="3" onkeydown="if (event.keyCode === 13) event.preventDefault();" />%
+          </label>
+          <button onclick="setZoom(globalThis.zoom * 1.02)">+</button> CC BY-SA 3.0 by Alanhw, uses <a href="https://w.wiki/59zE">this image</a> with many public domain US highway shields</p>
+      <script>
+          globalThis.zoom = 1;
+          function setZoom(zoom) {
+              document.querySelector('img').width = Math.round(2800 * zoom);
+              globalThis.zoom = zoom;
+              document.getElementById('zoom').textContent = Math.round(zoom * 100) + "%";
+              document.getElementById('zoombox').value = Math.round(zoom * 100);
+          }
+      </script>

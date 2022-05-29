@@ -1,7 +1,8 @@
 /* Common styles. Similar to Special:Mypage/common.css on Wikipedia. */
 .small{font-size:12px;}.white{color:white;}
-input, select, textarea {
+button, input, select, textarea {
     font-family: inherit;
+    font-size: inherit;
 }
 body {
     font-family: sans-serif;
@@ -15,4 +16,86 @@ body {
         color: gray;
         padding: 3px;
     }
+}
+@media print {
+    .no-when-print {
+        display: none;
+    }
+}
+.censor {
+    background-color: black;
+    border-radius: 3px;
+    transition: background-color 0.5s;
+}
+.censor:hover {
+    background-color: transparent;
+}
+.note:target, note:target sup a {
+	animation-fill-mode: forwards;
+	animation-name: fadegold;
+	animation-duration: 3s;
+}
+
+@keyframes fadegold {
+	0% {
+		background-color: gold;
+	}
+	100% {
+		background-color: unset;
+	}
+}
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+kbd {
+    margin-bottom: 7px;
+    display: inline-block;
+    border: 1px solid gray;
+    padding: 7px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 1px 1px 1px lightgray; 
+    box-shadow: 1px 1px 1px 1px lightgray; 
+}
+center {
+    text-align: center;
+}
+aside {
+    float: right; 
+    max-width: 50%;
+    background-color: #eeeeee; 
+    padding: 7px;
+    border: 1px solid;
+    margin: 3px;
+    display: block;
+}
+aside::before {
+    display: block;
+    content: "ASIDE (probably off-topic)";
+    text-align: center;
+    background-color: gray;
+    color: white;
+    padding: 7px;
+    text-align: center;
+}
+aside::after {
+    clear: right;
+    content: "End of off-topic stuff";
+    background-color: gray;  
+    color: white;
+    display: block; 
+    padding: 7px; 
+    text-align: center;
 }
