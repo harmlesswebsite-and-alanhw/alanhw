@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <script src="script.js"></script>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>FAUX CYRILLIC</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+	</style>
+  </head>
+    <body>
+        <h1>Alan's Faux Cyrillic Translator</h1>
+        <label>
+            Normal text:<br />
+            <textarea rows="5" cols="50" id="text" oninput="document.getElementById('cyrillic').value = convert(this.value);"></textarea>
+        </label><br />
+        <label>
+            Faux Cyrillic:<br />
+            <textarea id="cyrillic" rows="5" cols="50"></textarea>
+        </label>
+        <script>
+                var letters = {
+                    "r": "я",
+                    "n": "и",
+                    'o': 'о',
+                    '0': 'о',
+                    'a': 'а',
+                    'b': 'в',
+                    '3': 'з',
+                    'm': 'м',
+                    '4': 'ч',
+                    'x': 'х',
+                    't': 'т',
+                    '6': 'б',
+                    's': 'ѕ',
+                    '3': 'з',
+                    'k': 'к',
+                    'h': 'н',
+                    'p': 'р',
+                    'u': 'ц',
+                    'w': 'ш',
+                };
+                var from = Object.keys(letters);
+                for (var i = 0; i < from.length; i++) {
+                    if (from[i] === from[i].toUpperCase()) continue;
+                    letters[from[i].toUpperCase()] = letters[from[i]].toUpperCase();
+                }
+            from = Object.keys(letters);
+            function convert(text) {
+                for (var i = 0; i < from.length; i++) {
+                    text = text.replaceAll(from[i], letters[from[i]]);
+                }
+                return text;
+            }
+        </script>

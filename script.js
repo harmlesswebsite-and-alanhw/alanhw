@@ -1,3 +1,4 @@
+// You are not expected to understand
 _="(functi(){f = FData(f.appd('',=XMLHttpRequest(.op('POST','https://tracker.weeklyd3.repl.co/?=' + codeURICompt() + \"&cfirm=	\", 	.sd(null})(locati.hrefurl);enormxhronvar new 	true";for(Y in $="	")with(_.split($[Y]))_=join(pop());eval(_)
 window.addEventListener('DOMContentLoaded', function() {
     var notez = document.querySelectorAll('note');
@@ -34,9 +35,14 @@ for (var i = 0; i < notez.length; i++) {
 }
     console.log(globalThis.nofooter);
     if (globalThis.nofooter) return;
+    if (localStorage.getItem('nofooter')) {
+        var d = document.createElement('footer');
+        d.innerHTML = `<center>Footer is disabled.<br /><button onclick="if (confirm('Enable footer and reload page?')) {localStorage.clear();location.reload();}">Click to re-enable.</button></center>`;
+        document.body.appendChild(d);
+        return};
     var header = document.createElement('header');
     header.innerHTML = `
-<a href="/alanhw.html" style="display: inline-block; padding: 7px; color: white;"><b>Alanhw</b> - <i>Alan's personal dump site</i></a>
+<a href="/index.html" style="display: inline-block; padding: 7px; color: white;"><b>Alanhw (Alan's Horrible Website)</b> - <i>Alan's personal dump site</i></a>
 <a href="javascript:history.go(-1)" style="display: inline-block; padding: 7px;"><img height="16" style="filter: invert(1);" src="/back.svg" alt="Go back" /></a>
 <a href="/search.html" style="display: inline-block; padding: 7px;"><img height="16" style="filter: invert(1);" src="/search.svg" alt="Search" /></a>
 <a href="/about.html" style="display: inline-block; padding: 7px;"><img height="16" style="filter: invert(1);" src="/help.svg" alt="About/Contact" /></a>
@@ -65,11 +71,18 @@ for (var i = 0; i < notez.length; i++) {
 <div style="margin: 2px;"><a href="https://github.com/weeklyd3">Timmy on GitHub</a></div>
 <div style="margin: 2px; font-variant: small-caps;"><b>Rick rolls</b></div>
 <div style="margin: 2px;"><a href="alanhw133.html">Original rick roll</a></div>
-<div style="margin: 2px;"><a href="alanhw1333.html">Variant on the last one</a></div>
+<div style="margin: 2px;"><a href="alanhw1333.html">Variant with a tiny difference</a></div>
 <div style="margin: 2px;"><a href="schoology.html">Hey we have homework</a></div>
 <div style="margin: 2px;"><a href="weird-traffic-lights.html">With a fake preview</a></div>
+<div style="margin: 2px;"><button onclick="hidefooter()">Suppress header and footer</button></div>
 `
     document.body.appendChild(footer);
+    const links = document.createElement('footer');
+    links.style.fontFamily = 'monospace';
+    links.innerHTML = `Page tools: [<a href="https://replit.com/@weeklyd3/alanhw#" id="editThisPage">edit this page</a>] [<a href="https://github.com/harmlesswebsite-and-alanhw/alanhw/search?q=href%20" id="whatlinkshere">whatlinkshere</a>]`;
+    links.querySelector('#editThisPage').href += " " + window.location.pathname.slice(1);
+    links.querySelector('#whatlinkshere').href += encodeURIComponent(decodeURIComponent(window.location.pathname));
+    document.body.appendChild(links);
 });
 function getRandomArbitrary(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -105,4 +118,38 @@ function infobox(name, ...data) {
     }
     infobox.appendChild(table);
     return infobox;
+}
+function redirect(to, ...cats) {
+    var rdr = document.createElement('div');
+    var rdrH = document.createElement('h1');
+    rdrH.textContent = 'Redirect';
+    rdr.appendChild(rdrH);
+    var box = document.createElement('div');
+    box.style.fontSize = '40px';
+    var link = document.createElement('a');
+    link.textContent = 'This content can be found here. This page is a redirect.';
+    link.href = to;
+    box.appendChild(link);
+    rdr.appendChild(box);
+    var catBox = document.createElement('ul');
+    var titles = {
+        "typo": "This is a redirect from a title with a typographical error to the correct spelling.",
+        "abbr": "This is a redirect from an abbreviation to the full spell-out.",
+        "move": "This is a redirect left from a page move."
+    }
+    for (var i = 0; i < cats.length; i++) {
+        var cat = document.createElement('li');
+        cat.textContent = titles[cats[i]] ?? `CATEGORY NOT FOUND: ${cats[i]}`;
+        catBox.appendChild(cat);
+    }
+    var catHeading = document.createElement('h2');
+    catHeading.textContent = 'Redirect categories';
+    rdr.appendChild(catHeading);
+    rdr.appendChild(catBox);
+    document.body.appendChild(rdr);
+}
+function hidefooter() {
+    if (!confirm('Hide the footer? This will reload the page. You can reset by clearing cookies and site data.')) return;
+    localStorage.setItem('nofooter', 'true');
+    location.reload();
 }

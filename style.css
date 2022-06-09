@@ -7,10 +7,11 @@ button, input, select, textarea {
 body {
     font-family: sans-serif;
 }
-/* Uncomment the two lines below
-** to disable the link href preview. */
+/* Uncomment or comment the two lines 
+** below to disable or enable the link 
+** href preview. */
 
-@media print {
+@media print { 
     a::after {
         content: "[" attr(href) "]";
         color: gray;

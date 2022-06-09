@@ -99,5 +99,14 @@
 	  <h1>The Morone Quiz</h1>
    <form action="hw19index.html" method="POST">
 	   <p>I will not heck the system. <label><input type="checkbox" required="required" /> I agree</label>. I have <label><input type="checkbox" required="required" /> not</label> hecked the system before, and I will not. I agree that this is <label><input type="checkbox" required="required" /> not</label> a lie.</p>
-	   <input type="submit" value="Start Test" />
+	   <input type="submit" value="Start Test" /><br />
+       <label>
+           <input type="checkbox" onchange="this.checked = true" checked="checked" />
+           Disable this thing
+       </label>
+       &nbsp;&nbsp;
+       <label>
+           <input type="checkbox" onchange="this.checked = false" />
+           Enable this thing
+       </label>
    </form>

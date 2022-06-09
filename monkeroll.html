@@ -5,14 +5,10 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
       <link href="style.css" rel="stylesheet" type="text/css" />
     <meta name="description" content="Photoshopped Images by Paint" />
-	<script src="script.js"></script>
-    <title>Destroy Rick in the Minigame</title>
+    <title>YOU HAVE BEEN MONKE-ROLLED</title>
 	<style>
 	img {
 		max-width: 100%;
-	}
-	img[src="Morone-St-PROFILE-PHOTO.png"] {
-		width: 50%;
 	}
 	.big {
 		font-size: 20px;
@@ -47,25 +43,58 @@
 	}
 	.newsfeeditem h2 {
 		overflow-wrap: break-word;
+
 	}
+	summary {
+		list-style: none;
+	}
+	.width100 {
+		width: 100%;
+		height: 100vh;
+	}
+				.fakenotlink {
+			color: inherit;
+			text-decoration: none;
+			pointer: default;
+		}
+		label {
+			padding: 2px;
+			border: 1px solid;
+		}
+		.white  {
+			color: white;
+		}
+		.allwidth {
+			width: 95%;
+		}
+		.locked {
+			background-color: #111111;
+			color: black;
+		}
+		.locked::before {
+			z-index: 999;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 
+			content: "\00a0\00a0";
+			width: 100%;
+			background-color: green;
+		}
+		.farapart {
+			list-style: none;
+		}
+		.farapart > li {
+			margin-top: 1500px;
+		}
 	</style>
 	<meta name="introduction" content="no-reference" />
   </head>
   <body>
-      <fieldset>
-          <legend>Complete this minigame please</legend>
-          <iframe src="rickgame.html" style="border: 1px solid;" height="400"></iframe>
-      </fieldset>
-      <script>
-          window.onmessage = function(event) {
-              if (event.data === 'faliure') {
-                  document.body.textContent = 'You need to get б0 percent to move on.';
-              }
-              if (event.data === 'success') {
-                  location.href = '/content.html';
-              }
-              if (event.data === 'rick') {
-                  location.href = '/alanhw133.html';
-              }
-          }
-      </script>
+      <div style="position: fixed; top: 0; left: 0; text-align: center; font-size: 40px; width: 100%; height: 100%;" onclick="document.getElementById('nopause').hidden = '';"><div onclick="event.stopImmediatePropagation();">YOU'VE BEEN MONKE ROLLED</div></div>
+      <div style="height: 40px;"></div>
+      <center>
+          <img src="monke.gif" alt="A monkey drinking his own pee" style="width: 60%;" />
+          <div id="nopause" style="font-size: 40px;" hidden="hidden">AND IT CANNOT BE PAUSED</div>
+      </center>

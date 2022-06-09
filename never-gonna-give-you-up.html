@@ -1,0 +1,80 @@
+<style>
+    @import url('style.css');
+    p {
+        margin: 1px;
+    }
+    .current {
+        background-color: lime;
+    }
+</style>
+<script src="script.js"></script>
+<figure>
+    <figcaption>Listen to this song</figcaption>
+    <audio src="parody.m4a" controls="controls" id="audio" style="width: 100%;" loop="loop"></audio>
+</figure>
+<article id="lyrics">
+<p data-seconds="0"><i>(Opening music)</i></p>
+<p data-seconds="11">We're no strangers to hate</p>
+<p data-seconds="14">You know the rules eat the poop on your plate</p>
+<p data-seconds="19">or else you would be eating snickles</p>
+<p data-seconds="22">and fall into a pee filled hole</p>
+<p>I just wanna dunk you in the toilet</p>
+<p>Gotta make you eat the poo</p>
+<p>gonna eat you up</p>
+<p>gonna poop you out</p>
+<p>gonna flush you down the toilet</p>
+<p>Eat the poop</p>
+<p>or say goodbye</p>
+<p>Welp if youre not. I wont miss you</p>
+<p>You know the feces for so long</p>
+<p>Your butts been aching, but I dont give a [bleep]</p>
+<p>I dont think you know what's going on</p>
+<p>We know the poop and youre gonna eat it</p>
+<p>[1:17 giant scream] i will dunk you in the toilet</p>
+<p>Dont tell me that you dont have a mouth to eat</p>
+<p>gonna eat you up</p>
+<p>gonna poop you out</p>
+<p>gonna flush you down the toilet</p>
+<p>Eat the poop</p>
+<p>or say goodbye</p>
+<p>Welp if youre not. I wont miss you</p>
+<p>I have to make you eat the poo</p>
+<p>This is F.P. Industrie's annual giveaway</p>
+<p>You and me know whats been going on (going on)</p>
+<p>If you eat the poo, were gonna play it</p>
+<p>[1:17 giant scream] i will dunk you in the toilet</p>
+<p>Dont tell me that you dont have a mouth to eat</p>
+<p>gonna eat you up</p>
+<p>gonna poop you out</p>
+<p>gonna flush you down the toilet</p>
+<p>Eat the poop</p>
+<p>or say goodbye</p>
+<p>Welp if youre not. I wont miss you</p>
+</article>
+<script>
+    document.getElementById('audio').addEventListener('timeupdate', function() {
+        const time = this.currentTime;
+        console.log(`Current time: ${time}`);
+        for (var i = 0; i < document.querySelectorAll('#lyrics p').length; i++) {
+            const el = document.querySelectorAll('#lyrics p')[i];
+            el.classList.remove('current');
+        }
+        for (var i = 0; i < document.querySelectorAll('#lyrics p').length; i++) {
+            const el = document.querySelectorAll('#lyrics p')[i];
+            const nextTime = document.querySelectorAll('#lyrics p')[i + 1] ? (document.querySelectorAll('#lyrics p')[i + 1].getAttribute('data-seconds') ?? 666) : 666;
+            console.log(`Time of p number ${i}: ${el.getAttribute('data-seconds')}`);
+            console.log(`Next: ${nextTime}`);
+            if (!el.getAttribute('data-seconds')) continue;
+            if (el.getAttribute('data-seconds') <= time && time < nextTime) {
+                el.classList.add('current');
+                break;
+            }
+        }
+    });
+    for (var i = 0; i < document.querySelectorAll('article p').length; i++) {
+        if (document.querySelectorAll('article p')[i].getAttribute('data-seconds')) document.querySelectorAll('article p')[i].title = `Starts at ${document.querySelectorAll('article p')[i].getAttribute('data-seconds')} seconds`;
+        document.querySelectorAll('article p')[i].addEventListener('click', function() {
+            document.querySelector('audio').currentTime = this.getAttribute('data-seconds');
+        });
+    }
+</script>
