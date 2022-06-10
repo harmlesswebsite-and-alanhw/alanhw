@@ -79,9 +79,11 @@ for (var i = 0; i < notez.length; i++) {
     document.body.appendChild(footer);
     const links = document.createElement('footer');
     links.style.fontFamily = 'monospace';
-    links.innerHTML = `Page tools: [<a href="https://replit.com/@weeklyd3/alanhw#" id="editThisPage">edit this page</a>] [<a href="https://github.com/harmlesswebsite-and-alanhw/alanhw/search?q=href%20" id="whatlinkshere">whatlinkshere</a>]`;
+    links.innerHTML = `Page tools: [<a href="https://replit.com/@weeklyd3/alanhw#" id="editThisPage">edit this page</a>] [<a href="https://github.com/harmlesswebsite-and-alanhw/alanhw/edit/master" id="editgithub">edit on github</a>] [<a href="https://cs.github.com/harmlesswebsite-and-alanhw/alanhw?q=href%20" id="whatlinkshere">whatlinkshere (github)</a>] [<a href="https://cs.github.com/harmlesswebsite-and-alanhw/alanhw?q=" id="whatlinksheref">fuzzy whatlinkshere (github)</a>]`;
     links.querySelector('#editThisPage').href += " " + window.location.pathname.slice(1);
-    links.querySelector('#whatlinkshere').href += encodeURIComponent(decodeURIComponent(window.location.pathname));
+    links.querySelector('#editgithub').href += location.pathname;
+    links.querySelector('#whatlinkshere').href += encodeURIComponent(decodeURIComponent(window.location.pathname.slice(1)));
+    links.querySelector('#whatlinksheref').href += encodeURIComponent(decodeURIComponent(window.location.pathname.slice(1)));
     document.body.appendChild(links);
 });
 function getRandomArbitrary(min, max) {
