@@ -42,7 +42,7 @@ for (var i = 0; i < notez.length; i++) {
         return};
     var header = document.createElement('header');
     header.innerHTML = `
-<a href="/index.html" style="display: inline-block; padding: 7px; color: white;"><b>Alanhw (Alan's Horrible Website)</b> - <i>Alan's personal dump site</i></a>
+<a href="/index.html" style="display: inline-block; padding: 7px; color: white;"><b>Alanhw (Alan's Horrible Website)</b> - <i>Alan's personal dump site. See about for credits</i></a>
 <a href="javascript:history.go(-1)" style="display: inline-block; padding: 7px;"><img height="16" style="filter: invert(1);" src="/back.svg" alt="Go back" /></a>
 <a href="/search.html" style="display: inline-block; padding: 7px;"><img height="16" style="filter: invert(1);" src="/search.svg" alt="Search" /></a>
 <a href="/about.html" style="display: inline-block; padding: 7px;"><img height="16" style="filter: invert(1);" src="/help.svg" alt="About/Contact" /></a>

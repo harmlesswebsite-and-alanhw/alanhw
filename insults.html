@@ -1,0 +1,30 @@
+<body>
+    <script src="script.js"></script>
+    <style>@import url('style.css');</style>
+    <h1>Thou <span id="word1"></span> <span id="word2"></span></h1>
+    <center>
+        <button onclick="insult()">ANOTHER</button>
+    </center>
+    <script>
+        Array.prototype.random = function(){
+  return this[Math.floor(Math.random()*this.length)];
+}
+        const word1 = [
+            "big",
+            "small",
+            "painted",
+            "thick"
+        ];
+        const word2 = [
+            "nub",
+            "noob",
+            "n00b",
+            "maypole"
+        ]
+        function insult() {
+            document.getElementById('word1').textContent = word1.random();
+            document.getElementById('word2').textContent = word2.random();
+        }
+        insult();
+    </script>
+</body>

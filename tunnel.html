@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <script src="script.js"></script>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Photoshopped Images</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+	</style>
+  </head>
+    <body>
+        <style>
+            .circle {
+                border-radius: 50%;
+                border: 1px solid;
+                white-space: pre-wrap; 
+                color: rgba(0, 0, 0, 0.1);
+            }
+            .notext {
+                color: rgba(0, 0, 0, 0);
+            }
+            .nowire { border: none; }
+        </style>
+        <button onclick="coloronoff()">Text on/off</button>
+        <button onclick="wireonoff()">Wireframe on/off</button>
+        <script>
+function wireonoff() {
+                const col = document.querySelector('#tunnel div');
+                if (col.getAttribute('class').includes('nowire')) {
+                    Array.from(document.querySelectorAll('#tunnel2 div, #tunnel div, #tunnel3 div')).forEach(function(elem) { elem.classList.remove('nowire'); });
+                } else {
+                    Array.from(document.querySelectorAll('#tunnel2 div, #tunnel div, #tunnel3 div')).forEach(function(elem) { elem.classList.add('nowire'); });
+                }
+            }
+            function coloronoff() {
+                const col = document.querySelector('#tunnel div');
+                if (col.getAttribute('class').includes('notext')) {
+                    Array.from(document.querySelectorAll('#tunnel2 div, #tunnel div, #tunnel3 div')).forEach(function(elem) { elem.classList.remove('notext'); });
+                } else {
+                    Array.from(document.querySelectorAll('#tunnel2 div, #tunnel div, #tunnel3 div')).forEach(function(elem) { elem.classList.add('notext'); });
+                }
+            } </script>
+        <div style="position: relative;" id="tunnel">
+            
+        </div>
+        <div style="display: none; position: relative;" id="tunnel3">
+            
+        </div>
+        <div style="position: relative;" id="tunnel2">
+            
+        </div>
+        <script>
+            const msgs = 'ya big nubya big nub';
+            for (var i = 0; i <= 200; i += 0.5) {
+                const tun = document.createElement('div');
+                tun.style.textAlign = 'center';
+                tun.textContent = msgs[i % 10 * 2];
+                tun.classList.add('circle');
+                //tun.style.width = '100%';
+                tun.style.position = 'absolute';
+                tun.style.top = `${i * 0.375}px`;
+                tun.style.left = `${i * 0.375}px`;
+                //tun.style.textAlign = 'center';
+                tun.style.fontSize = `${i * 1.1}px`;
+                tun.style.width = `${i * 1.1}px`;
+                tun.style.zIndex = i * 2;
+                if (i !== 200) tun.style.borderColor = 'gray';
+                else tun.style.borderColor = 'black';
+                if (i !== 200) tun.setAttribute('aria-hidden', 'true');
+                document.querySelector('#tunnel').appendChild(tun);
+                const t = tun.cloneNode(true);
+                t.style.right = `${i * 0.375}px`;
+                t.style.left = null;
+                document.querySelector('#tunnel2').appendChild(t);
+                const tu = t.cloneNode(true);
+                document.querySelector('#tunnel3').appendChild(tu);
+                tu.parentNode.style.width = '100%';
+                tu.style.right = null;
+                tu.style.left = null;
+                tu.style.textAlign = 'center';
+            }
+        </script>

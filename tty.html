@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <script src="script.js"></script>
+      <script src="https://harmlesswebsite.leoshi6.repl.co/library.js"></script>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Photoshopped Images by Paint" />
+    <title>Teletype</title>
+	<style>
+	img {
+		max-width: 100%;
+	}
+	img[src="Morone-St-PROFILE-PHOTO.png"] {
+		width: 50%;
+	}
+	.big {
+		font-size: 20px;
+	}	
+	iframe {
+		border: none;
+		overflow: hidden !important;
+	}
+	.small {
+		font-size: 6px;
+	}
+        #cursor {
+            user-select: none;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            49% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            99% {
+                opacity: 0;
+            }
+        }
+        #keyboard button { padding: 14px; margin: 1px; display: inline-block; font-family: Consolas, monospace; }
+        #keyboard { text-align: center; }
+	</style>
+  </head>
+    <body>
+        <p>Teletype - tools: <button onclick="document.querySelector('label').removeAttribute('style');">Show a11y textarea</button> <button onclick="document.querySelector('label').setAttribute('style', 'position: fixed; top: -9999px;');">Hide a11y textarea</button> <button onclick="alert('ACCESSIBILITY YA BIG NUB');">Wat is a11y</button>
+        <button onclick="globalThis.win = window.open('about:blank', 'print', 'width=500,height=500'); win.document.write('<pre style=&quot;word-break: break-word;&quot;>' + document.querySelector('#output').innerHTML + '</pre>'); win.print();">Print document</button></p>
+        <pre aria-hidden="true" style="white-space: pre-wrap; word-break: break-word;"><span id="output"></span><span id="cursor">█</span></pre>
+        <div id="keyboard">
+            <div>
+                <button caps="~">`</button>
+                <button caps="!">1</button>
+                <button caps="@">2</button>
+                <button caps="#">З</button>
+                <button caps="$">4</button>
+                <button caps="%">5</button>
+                <button caps="^">6</button>
+                <button caps="&amp;">7</button>
+                <button caps="*">8</button>
+                <button caps="(">9</button>
+                <button caps=")">0</button>
+                <button caps="_">-</button>
+                <button caps="+">=</button>
+                <button onclick="if (!globalThis.disableBackspace) { document.querySelector('#output').textContent = document.querySelector('#output').textContent.slice(0, -1); document.querySelector('textarea').value = document.querySelector('textarea').value.slice(0, -1); this.textContent = 'Backspace';} else {this.textContent = 'Backspace'; globalThis.disableBackspace = false;}">Enable Backspace</button>
+            <div>
+            <button onclick="print('    '); if (globalThis.doShift) { globalThis.doShift = false; shift(); }">TAB</button>
+            <button>q</button>
+            <button>w</button>
+            <button>e</button>
+            <button>r</button>
+            <button>t</button>
+            <button>y</button>
+            <button>u</button>
+            <button>i</button>
+            <button>o</button>
+            <button>p</button>
+            <button caps="{">[</button>
+            <button caps="}">]</button>
+            <button caps="\">|</button>
+            </div>
+            <div>
+                <button onclick="shift(); globalThis.doShift = false;">CAPS LOCK</button>
+                <button>a</button>
+                <button>s</button>
+                <button>d</button>
+                <button>f</button>
+                <button>g</button>
+                <button>h</button>
+                <button>j</button>
+                <button>k</button>
+                <button>l</button>
+                <button caps=":">;</button>
+                <button caps="&quot;">'</button>
+                <button onclick="print('\n'); if (globalThis.doShift) { globalThis.doShift = false; shift(); }">ENTER</button>
+            </div>
+            <div>
+                <button onclick="shift(); globalThis.doShift = true;">SHIFT</button>
+                <button>z</button>
+                <button>x</button>
+                <button>c</button>
+                <button>v</button>
+                <button>b</button>
+                <button>n</button>
+                <button>m</button>
+                <button caps="&lt;">,</button>
+                <button caps="&gt;">.</button>
+                <button caps="?">/</button>
+                <button onclick="shift(); globalThis.doShift = true;">SHIFT</button>
+            </div>
+            <div>
+                <button onclick="print(' '); if (globalThis.doShift) { globalThis.doShift = false; shift(); }">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+
+        <label style="position: fixed; top: -9999px;">Output:
+        <textarea></textarea>
+        </label>
+        <script>
+            globalThis.disableBackspace = true;
+            const buttons = document.querySelectorAll('#keyboard button');
+            Array.from(buttons).forEach(function(value) {
+                if (value.getAttribute('onclick')) return;
+                if (value.getAttribute('caps')) value.setAttribute('orig', value.textContent);
+                value.addEventListener('click', function() {
+                    print(this.textContent);
+                    if (globalThis.doShift) {
+                        globalThis.doShift = false; shift();
+                    }
+                });
+            });
+            function shift() {
+                const buttons = document.querySelectorAll('#keyboard button');
+                Array.from(buttons).forEach(function(value) {
+                    if (value.getAttribute('onclick')) return;
+                    if (value.getAttribute('caps')) {
+                        if (value.getAttribute('caps') === value.textContent) value.textContent = value.getAttribute('orig');
+                        else value.textContent = value.getAttribute('caps');
+                        return;
+                    }
+                    value.textContent = (value.textContent.toUpperCase() === value.textContent) ? value.textContent.toLowerCase() : value.textContent.toUpperCase();
+                });
+            }
+            function print(value) {
+                document.querySelector('textarea').value += value;
+                document.querySelector('#output').textContent = document.querySelector('textarea').value;
+                if (typeof win !== 'undefined') {
+                    if (!win.closed) {
+                        win.document.close();
+                        win.document.write('<pre style="word-break: break-word;">' + document.querySelector('#output').innerHTML + '</pre>');
+                    }
+                }
+            }
+            document.onkeydown = function(ev) {
+                if (globalThis.disableBackspace && ev.keyCode === 8) ev.preventDefault();
+                document.querySelector('textarea').focus();
+                document.querySelector('textarea').selectionEnd = document.querySelector('textarea').value.length;
+                document.querySelector('textarea').selectionStart = document.querySelector('textarea').selectionEnd;
+                console.log(document.querySelector('textarea').selectionEnd);
+            }
+            document.querySelector('textarea').oninput = function() {
+                console.log('Putting value');
+                document.querySelector('#output').textContent = document.querySelector('textarea').value;
+                if (typeof win !== 'undefined') {
+                    if (!win.closed) {
+                        win.document.close();
+                        win.document.write('<pre style="word-break: break-word;">' + document.querySelector('#output').innerHTML + '</pre>');
+                    }
+                }
+            }
+        </script>

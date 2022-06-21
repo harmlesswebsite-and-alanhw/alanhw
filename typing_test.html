@@ -34,34 +34,21 @@
         </div>
         <div id="game" hidden="hidden">
             <blockquote>
-                                <button id="prev" onclick="loadWhere(where, globalThis.whereIndex - 1);">&lsaquo;</button>
-                <span id="offset"></span> / <span id="total"></span>
-                <button id="next" onclick="loadWhere(where, globalThis.whereIndex + 1);">&rsaquo;</button>
                 <dl>
                     <dt style="font-weight: bold;">$PERSON</dt>
                     <dd style="white-space: pre-wrap;">$LINE</dd>
                 </dl>
+                <button id="prev" onclick="loadWhere(where, globalThis.whereIndex - 1);">&lsaquo;</button>
+                <span id="offset"></span> / <span id="total"></span>
+                <button id="next" onclick="loadWhere(where, globalThis.whereIndex + 1);">&rsaquo;</button>
             </blockquote>
-            <label>Type the missing word represented by the number of letters above:<br />
-            <input id="word" style="box-sizing: border-box; width: 100%;" placeholder="Type this word" onkeydown="handleInput(event, this)" />
+            <label>Type the missing word:<br />
+            <input id="word" style="box-sizing: border-box; width: 100%;" />
             </label>
-            <div>(<span id="right">0</span> right, <span id="wrong">0</span> wrong, <span id="remaining">some</span> remaining until next shuffle)</div>
         </div>
         <script>
-            function handleInput(ev, textbox) {
-                if (ev.keyCode !== 13 && ev.keyCode !== 32) return;
-                ev.preventDefault();
-                const val = textbox.value.trim();
-                if (val !== currentWord) document.getElementById('wrong').textContent = parseInt(document.getElementById('wrong').textContent) + 1;
-                else document.getElementById('right').textContent = parseInt(document.getElementById('right').textContent) + 1;
-                textbox.value = '';
-                textbox.focus();
-                loadWord();
-            } 
             function loadWord() {
-                document.getElementById('remaining').textContent = globalThis.things.length;
-                document.getElementById('word').focus();
-                if (!globalThis.things.length) globalThis.things = lib.shuffle(Object.keys(globalThis.words));
+                if (!globalThis.things.length) globalThis.things = lib.shuffle(globalThis.things);
                 const w = words[globalThis.things[0]];
                 globalThis.currentWord = globalThis.things[0];
                 globalThis.things.shift();
@@ -76,17 +63,11 @@
                 if (index - arr.length === -1) document.getElementById('next').disabled = 'disabled';
                 if (!index) document.getElementById('prev').disabled = 'disabled';
                 document.getElementById('total').textContent = arr.length;
-                document.getElementById('offset').textContent = index + 1;
+                document.getElementById('offset').innerHTML = o.escape(index + 1).replace(`/\b${lib.pregQuote(globalThis.currentWord)}\b/g`, );
                 const i = arr[index];
                 const l = lines[i];
                 document.querySelector('dt').textContent = l.person;
-                const text = `\\b${lib.pregQuote(lib.escape(globalThis.currentWord))}\\b`;
-                console.log(text);
-                const regex = new RegExp(text, 'gi');
-                document.querySelector('dd').innerHTML = lib.escape(l.line).replace(regex, function(text) {
-                    console.log(text);
-                    return `<mark>(${text.length})</mark>`;
-                });
+                document.querySelector('dd').textContent = l.line;
             }
             fetch(`https://hw-cdn.weeklyd3.repl.co/index.php?action=download&filename=bsiv-amnd`)
             .then(function(res) {
